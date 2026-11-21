@@ -24,16 +24,33 @@ export interface Variant {
   stock: number | null; // null = non renseigné
 }
 
+export type Intensity = 1 | 2 | 3 | 4 | 5;
+
 export interface Product {
   slug: string;
   name: string;
+  /** Marque ou créateur, si différent de la maison. */
+  brand?: string;
+  /** Ex. "Eau de parfum", "Extrait", "Huile parfumée". */
+  concentration?: string;
   category: CategorySlug;
   family: string; // famille olfactive
   notes: { top: string[]; heart: string[]; base: string[] };
   description: string;
+  /** Image principale. */
   image: string;
+  /** Photos supplémentaires (flacon, packaging, texture…). */
+  gallery?: string[];
+  /** Tenue et sillage notés de 1 à 5 — affichés seulement si renseignés. */
+  longevity?: Intensity;
+  sillage?: Intensity;
+  /** Moments conseillés, ex. ["Soir", "Hiver"]. */
+  occasions?: string[];
+  ingredients?: string;
+  usage?: string;
   variants: Variant[];
-  isExample: true;
+  /** true = fiche de démonstration, signalée comme telle dans l'interface. */
+  isExample: boolean;
   isNew?: boolean;
   isFavorite?: boolean;
 }
@@ -82,15 +99,51 @@ export const products: Product[] = [
   },
 ];
 
-export type SortKey = "pertinence" | "nom";
+const searchText = (p: Product) =>
+  [p.name, p.brand, p.concentration, p.family, p.description, ...p.notes.top, ...p.notes.heart, ...p.notes.base]
+    .filter(Boolean).join(" ").toLowerCase();
+
+export type SortKey = "pertinence" | "nom" | "prix-asc" | "prix-desc";
+export const sortKeys: SortKey[] = ["pertinence", "nom", "prix-asc", "prix-desc"];
 
 export function filterProducts(list: Product[], opts: { q?: string; cat?: CategorySlug; sort?: SortKey }): Product[] {
   const q = opts.q?.trim().toLowerCase();
   let out = list.filter((p) => (!opts.cat || p.category === opts.cat) &&
-    (!q || `${p.name} ${p.family} ${p.description}`.toLowerCase().includes(q)));
+    (!q || searchText(p).includes(q)));
   if (opts.sort === "nom") out = [...out].sort((a, b) => a.name.localeCompare(b.name, "fr"));
+  if (opts.sort === "prix-asc" || opts.sort === "prix-desc") {
+    const dir = opts.sort === "prix-asc" ? 1 : -1;
+    // Les produits sans prix restent toujours en fin de liste.
+    out = [...out].sort((a, b) => {
+      const pa = minPrice(a), pb = minPrice(b);
+      if (pa === null || pb === null) return (pa === null ? 1 : 0) - (pb === null ? 1 : 0);
+      return (pa - pb) * dir;
+    });
+  }
   return out;
 }
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
+export const getVariant = (variantId: string) => {
+  for (const product of products) {
+    const variant = product.variants.find((v) => v.id === variantId);
+    if (variant) return { product, variant };
+  }
+  return undefined;
+};
+
+/** Achetable = prix connu et stock non épuisé (stock null = non suivi). */
+export const isPurchasable = (v: Variant) => v.priceCents !== null && (v.stock === null || v.stock > 0);
+
+/** Prix le plus bas parmi les contenances renseignées, pour l'affichage « dès … ». */
+export function minPrice(p: Product): number | null {
+  const prices = p.variants.map((v) => v.priceCents).filter((c): c is number => c !== null);
+  return prices.length ? Math.min(...prices) : null;
+}
+
+/** Suggestions : même catégorie d'abord, puis même famille, puis le reste. */
+export function relatedProducts(p: Product, limit = 4): Product[] {
+  const score = (o: Product) => (o.category === p.category ? 2 : 0) + (o.family === p.family ? 1 : 0);
+  return products.filter((o) => o.slug !== p.slug).sort((a, b) => score(b) - score(a)).slice(0, limit);
+}
 export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);

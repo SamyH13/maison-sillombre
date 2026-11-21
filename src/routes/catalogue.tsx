@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Search } from "lucide-react";
-import { categories, filterProducts, products, type CategorySlug, type SortKey } from "@/data/catalog";
+import { categories, filterProducts, products, sortKeys, type CategorySlug, type SortKey } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PageHero } from "@/components/site/PageHero";
 
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/catalogue")({
     const out: S = {};
     if (typeof s["cat"] === "string" && categories.some((c) => c.slug === s["cat"])) out.cat = s["cat"] as CategorySlug;
     if (typeof s["q"] === "string" && s["q"]) out.q = s["q"];
-    if (s["sort"] === "nom") out.sort = "nom";
+    if (typeof s["sort"] === "string" && s["sort"] !== "pertinence" && sortKeys.includes(s["sort"] as SortKey)) out.sort = s["sort"] as SortKey;
     return out;
   },
   head: () => ({
@@ -40,7 +40,7 @@ function Catalogue() {
   return (
     <>
       <PageHero eyebrow="Catalogue" title={current?.name ?? "Toutes les fragrances"}>
-        Les fiches ci-dessous sont des exemples de présentation ; le catalogue réel sera importé prochainement.
+        {products.some((p) => p.isExample) ? "Certaines fiches sont encore des exemples de présentation ; le catalogue réel arrive prochainement." : "Parfums, essences orientales et soins, sélectionnés un à un."}
       </PageHero>
       <div className="container-lux">
         <div className="sticky top-16 md:top-20 z-30 -mx-5 px-5 md:mx-0 md:px-0 bg-background/95 backdrop-blur py-4 border-b border-border">
@@ -53,13 +53,14 @@ function Catalogue() {
           <div className="mt-4 flex items-center gap-2 overflow-x-auto no-scrollbar">
             <Chip active={!search.cat} onClick={() => set({ cat: undefined })}>Tout</Chip>
             {categories.map((c) => <Chip key={c.slug} active={search.cat === c.slug} onClick={() => set({ cat: c.slug })}>{c.name}</Chip>)}
-            <select aria-label="Trier" value={search.sort ?? "pertinence"} onChange={(e) => set({ sort: e.target.value === "nom" ? "nom" : undefined })}
+            <select aria-label="Trier" value={search.sort ?? "pertinence"} onChange={(e) => set({ sort: e.target.value === "pertinence" ? undefined : (e.target.value as SortKey) })}
               className="ml-auto shrink-0 bg-transparent eyebrow py-2 focus:outline-none">
               <option value="pertinence">Pertinence</option><option value="nom">Nom A–Z</option>
+              <option value="prix-asc">Prix croissant</option><option value="prix-desc">Prix décroissant</option>
             </select>
           </div>
         </div>
-        <p className="mt-6 text-xs text-muted-foreground">{list.length} fiche{list.length > 1 ? "s" : ""} d'exemple</p>
+        <p className="mt-6 text-xs text-muted-foreground" aria-live="polite">{list.length} produit{list.length > 1 ? "s" : ""}</p>
         {list.length ? (
           <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-6">{list.map((p) => <ProductCard key={p.slug} product={p} />)}</div>
         ) : (

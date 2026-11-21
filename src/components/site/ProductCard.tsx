@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
 import type { Product } from "@/data/catalog";
-import { getCategory } from "@/data/catalog";
+import { getCategory, minPrice } from "@/data/catalog";
 import { formatPrice } from "@/lib/format";
 import { useFavorites } from "@/lib/store/favorites";
 import { ExampleTag } from "./ExampleTag";
@@ -13,13 +13,14 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group relative">
       <Link to="/produit/$slug" params={{ slug: product.slug }} className="block">
         <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-          <img src={product.image} alt="" loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" />
-          <div className="absolute left-3 top-3"><ExampleTag /></div>
+          <img src={product.image} alt={product.name} loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" />
+          {product.isExample ? <div className="absolute left-3 top-3"><ExampleTag /></div>
+            : product.isNew && <span className="absolute left-3 top-3 eyebrow bg-background/85 backdrop-blur px-2 py-1">Nouveau</span>}
         </div>
         <div className="pt-4">
           <p className="eyebrow text-muted-foreground">{getCategory(product.category)?.name} · {product.family}</p>
           <h3 className="mt-1.5 font-serif text-xl md:text-2xl">{product.name}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{formatPrice(product.variants[0]?.priceCents ?? null)}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{priceLabel(product)}</p>
         </div>
       </Link>
       <button onClick={() => fav.toggle(product.slug)} aria-pressed={liked}
@@ -29,4 +30,10 @@ export function ProductCard({ product }: { product: Product }) {
       </button>
     </article>
   );
+}
+
+function priceLabel(p: Product): string {
+  const min = minPrice(p);
+  const priced = p.variants.filter((v) => v.priceCents !== null).length;
+  return min !== null && priced > 1 ? `dès ${formatPrice(min)}` : formatPrice(min);
 }
