@@ -19,6 +19,6 @@ STORY: Le visiteur reconnaît les flacons du stand, parcourt les collections par
 
 FIRST VIEWPORT: Mur tadelakt plein cadre ; à gauche le titre en Reem Kufi et l'action « Voir les parfums » (bouton zellige) ; à droite trois niches, celle du centre plus haute (Oud Mood Réminiscence), flanquée de Yara et Asad Elixir. Sur mobile, titre puis les trois niches en rang, centre plus haute.
 
-FORM: Riad (tadelakt + niches + zellige), position 6 de la liste ancrée lors de la relance n°1 ; seed: none (pinned) — référence de la relance perdue, direction choisie par l'utilisateur en ses mots : « Le riad ».
+FORM: Riad (tadelakt + niches + zellige), position 6 de la liste ancrée, choisie par l'utilisateur dans la main distribuée après la relance n°1 ; seed: lost (relance n°1 exécutée sur cette machine ; référence non conservée).
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

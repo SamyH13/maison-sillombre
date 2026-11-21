@@ -17,7 +17,8 @@ export function ProductCard({ product }: { product: Product }) {
           <img src={product.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" />
         </div>
       </Link>
-      <div className="niche-sill" aria-hidden="true" />
+      {/* Le seuil déborde dans la gouttière : posées côte à côte, les fiches partagent un rebord continu. */}
+      <div className="niche-sill -mr-4 md:-mr-8" aria-hidden="true" />
       <div className="mt-3 flex items-start justify-between gap-2">
         <Link to="/produit/$slug" params={{ slug: product.slug }} className="min-w-0">
           <h3 className="text-xl md:text-2xl group-hover:text-zellige transition-colors">{name}</h3>

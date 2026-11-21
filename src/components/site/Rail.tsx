@@ -22,7 +22,7 @@ export function Rail({ label, children }: { label: string; children: ReactNode }
         <button type="button" className={btn} onClick={() => go(-1)} disabled={edge.start} aria-label="Parfums précédents"><ChevronLeft className="size-5" strokeWidth={1.5} /></button>
         <button type="button" className={btn} onClick={() => go(1)} disabled={edge.end} aria-label="Parfums suivants"><ChevronRight className="size-5" strokeWidth={1.5} /></button>
       </div>
-      <div ref={ref} className="-mx-4 px-4 md:mx-0 md:px-0 flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar" role="region" tabIndex={0} aria-label={label}>
+      <div ref={ref} className="-mx-4 px-4 md:mx-0 md:px-0 flex gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar" role="region" tabIndex={0} aria-label={label}>
         {children}
       </div>
     </div>

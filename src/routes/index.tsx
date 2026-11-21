@@ -27,7 +27,13 @@ const wall = ["yara-vieux-rose", "oud-mood-reminiscence", "asad-elixir"]
   .filter((p): p is Product => Boolean(p));
 
 /** Colonnes explicites : le seuil partagé occupe la 2e rangée sans décaler les niches. */
-const wallCols = ["md:col-start-1", "md:col-start-2", "md:col-start-3", "md:col-start-4"];
+// Sur mobile : la niche Oud Mood, haute, occupe la première rangée ; les trois autres, plus petites, partagent la seconde.
+const wallCols = [
+  "order-2 md:order-none md:col-start-1",
+  "order-1 col-span-3 md:col-span-1 md:order-none md:col-start-2",
+  "order-3 md:order-none md:col-start-3",
+  "order-4 md:order-none md:col-start-4",
+];
 
 function Index() {
   const parfums = products.filter((p) => p.kind === "parfum");
@@ -71,14 +77,14 @@ function Index() {
             <p className="mt-4 text-lg text-ink">Trois gammes de parfums et une gamme de soins pour les cheveux.</p>
           </div>
           {/* Un mur de niches de tailles variées, toutes posées sur le même seuil (sur ordinateur). */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-[1fr_1.3fr_1.15fr_0.9fr] md:grid-rows-[auto_auto_auto] gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-0">
+          <div className="mt-12 grid grid-cols-3 md:grid-cols-[1fr_1.3fr_1.15fr_0.9fr] md:grid-rows-[auto_auto_auto] gap-x-3 gap-y-10 md:gap-x-6 md:gap-y-0">
             {categories.map((c, i) => (
               <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group flex flex-col ${wallCols[i]} md:row-start-1 md:row-span-3 md:grid md:grid-rows-subgrid`}>
-                <div className="niche md:self-end"><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" /></div>
-                <div className="niche-sill md:invisible" aria-hidden="true" />
+                <div className={`niche md:self-end ${i === 1 ? "w-[64%] mx-auto md:w-auto" : ""}`}><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" /></div>
+                <div className={`niche-sill md:invisible ${i === 1 ? "" : "-mr-3 md:mr-0"}`} aria-hidden="true" />
                 <span className="mt-4 block">
-                  <h3 className="text-2xl md:text-3xl group-hover:text-zellige-deep transition-colors">{c.name}</h3>
-                  <span className="mt-1 block text-ink">{c.tagline}</span>
+                  <h3 className={`${i === 1 ? "text-3xl text-center md:text-left" : "text-lg sm:text-2xl"} md:text-3xl group-hover:text-zellige-deep transition-colors`}>{c.name}</h3>
+                  <span className={`mt-1 block text-ink ${i === 1 ? "text-center md:text-left" : "text-sm sm:text-base"}`}>{c.tagline}</span>
                 </span>
               </Link>
             ))}

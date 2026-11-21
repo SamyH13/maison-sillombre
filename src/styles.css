@@ -206,10 +206,10 @@
 }
 /* Seuil de terre cuite sur lequel reposent une rangée de niches. */
 @utility niche-sill {
-  height: 0.9rem;
-  background-color: var(--terracotta);
-  background-image: linear-gradient(to bottom, oklch(0.78 0.06 46 / 0.7), transparent 30%);
-  box-shadow: 0 10px 16px -10px oklch(0.2 0.04 40 / 0.6);
+  height: 1rem;
+  /* Lèvre éclairée sur le dessus, chant plus sombre en façade, ombre portée sur le mur. */
+  background: linear-gradient(to bottom, oklch(0.84 0.05 50) 0 22%, oklch(0.6 0.095 38) 22% 70%, oklch(0.5 0.085 36));
+  box-shadow: 0 12px 16px -10px oklch(0.2 0.04 40 / 0.55);
 }
 /* Soubassement de zellige (étoiles à huit branches). */
 @utility zellige-band {
