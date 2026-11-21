@@ -133,7 +133,7 @@ function ProductView({ product }: { product: Product }) {
   return (
     <>
       <div className="container-lux pt-6 md:pt-10">
-        <nav aria-label="Fil d'Ariane" className="text-xs text-muted-foreground">
+        <nav aria-label="Fil d'Ariane" className="text-sm uppercase tracking-wide text-muted-foreground">
           <Link to="/catalogue" search={{}} className="link-lux">
             Catalogue
           </Link>
@@ -356,7 +356,7 @@ function ProductView({ product }: { product: Product }) {
       {product.range && <RangeSection range={product.range} />}
 
       <section className="container-lux mt-24">
-        <h2 className="text-2xl md:text-3xl uppercase mb-8">Vous aimerez aussi</h2>
+        <h2 className="text-2xl md:text-3xl uppercase mb-8">Produits similaires</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6">
           {relatedProducts(product).map((p) => (
             <ProductCard key={p.slug} product={p} />
