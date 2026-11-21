@@ -155,13 +155,13 @@ function ProductView({ product }: { product: Product }) {
       <section className="container-lux mt-6 grid md:grid-cols-2 gap-10 md:gap-16">
         <Gallery product={product} />
 
-        <div className="md:py-10 animate-rise">
+        <div className="md:py-4 animate-rise">
           <p className="eyebrow text-muted-foreground">
             {[product.brand, product.concentration ?? product.collection]
               .filter(Boolean)
               .join(" · ")}
           </p>
-          <h1 className="mt-3 text-5xl md:text-6xl leading-[1]">{product.name}</h1>
+          <h1 className="mt-2 text-3xl md:text-4xl leading-tight">{product.name}</h1>
           {product.range && (
             <p className="mt-4 inline-flex items-center gap-2.5 text-sm">
               <span
@@ -172,11 +172,11 @@ function ProductView({ product }: { product: Product }) {
               Gamme {product.range.color} · {product.range.items.length} soins vendus ensemble
             </p>
           )}
-          <p className="mt-5 text-xl" aria-live="polite">
+          <p className="mt-4 text-3xl font-semibold" aria-live="polite">
             {formatPrice(variant?.priceCents ?? null)}
           </p>
           {product.tagline && (
-            <p className="mt-6 font-serif text-2xl italic leading-snug max-w-md">
+            <p className="mt-6 text-lg font-medium leading-snug max-w-md">
               {product.tagline}
             </p>
           )}
@@ -247,7 +247,7 @@ function ProductView({ product }: { product: Product }) {
               aria-label={liked ? "Retirer des favoris" : "Ajouter aux favoris"}
               className="grid w-14 shrink-0 place-items-center border border-border hover:border-foreground transition-colors"
             >
-              <Heart className={`size-5 ${liked ? "fill-foreground" : ""}`} strokeWidth={1.25} />
+              <Heart className={`size-5 ${liked ? "fill-champagne text-champagne" : ""}`} strokeWidth={1.25} />
             </button>
           </div>
           <p id="achat-info" className="mt-3 text-xs text-muted-foreground" aria-live="polite">
@@ -313,7 +313,7 @@ function ProductView({ product }: { product: Product }) {
                       key={label}
                       className="flex justify-between gap-6 border-b border-border/60 py-3 last:border-0"
                     >
-                      <span className="font-serif text-lg">{label}</span>
+                      <span className="font-medium">{label}</span>
                       <span className="text-sm text-muted-foreground text-right">
                         {list.join(", ")}
                       </span>
@@ -356,7 +356,7 @@ function ProductView({ product }: { product: Product }) {
       {product.range && <RangeSection range={product.range} />}
 
       <section className="container-lux mt-24">
-        <h2 className="text-3xl md:text-4xl mb-8">Vous aimerez aussi</h2>
+        <h2 className="text-2xl md:text-3xl uppercase mb-8">Vous aimerez aussi</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6">
           {relatedProducts(product).map((p) => (
             <ProductCard key={p.slug} product={p} />
@@ -373,7 +373,7 @@ function RangeSection({ range }: { range: NonNullable<Product["range"]> }) {
       <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
         <div>
           <p className="eyebrow text-muted-foreground">Le rituel en {range.items.length} gestes</p>
-          <h2 id="trio-titre" className="mt-3 text-4xl md:text-5xl">
+          <h2 id="trio-titre" className="mt-2 text-2xl md:text-3xl uppercase">
             Dans le trio
           </h2>
         </div>
@@ -386,7 +386,7 @@ function RangeSection({ range }: { range: NonNullable<Product["range"]> }) {
       <ol className="grid md:grid-cols-3 gap-10 md:gap-8 mt-10">
         {range.items.map((item, i) => (
           <li key={item.sku} className="flex flex-col">
-            <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+            <div className="relative aspect-square overflow-hidden bg-muted">
               <img
                 src={item.image}
                 alt={item.name}
@@ -395,15 +395,15 @@ function RangeSection({ range }: { range: NonNullable<Product["range"]> }) {
                 height={1200}
                 className="size-full object-cover"
               />
-              <span className="absolute left-3 top-3 grid size-9 place-items-center rounded-full bg-background/90 font-serif text-lg">
+              <span className="absolute left-3 top-3 grid size-9 place-items-center rounded-full bg-champagne text-white font-bold">
                 {i + 1}
               </span>
             </div>
             <p className="mt-5 eyebrow text-muted-foreground">
               {item.type} · {item.volume}
             </p>
-            <h3 className="mt-2 font-serif text-2xl leading-tight">{item.name}</h3>
-            <p className="mt-3 font-serif italic text-lg leading-snug">{item.tagline}</p>
+            <h3 className="mt-2 text-lg font-semibold leading-snug">{item.name}</h3>
+            <p className="mt-2 font-medium leading-snug">{item.tagline}</p>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
             {item.benefits.length > 0 && (
               <ul className="mt-4 flex flex-wrap gap-1.5">
@@ -437,7 +437,7 @@ function Gallery({ product }: { product: Product }) {
   const [index, setIndex] = useState(0);
   return (
     <div className="md:sticky md:top-24 self-start">
-      <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+      <div className="relative aspect-square overflow-hidden bg-muted">
         <img
           key={index}
           src={images[index]}
@@ -541,7 +541,7 @@ function Section({
 }) {
   return (
     <AccordionItem value={value} className="border-border">
-      <AccordionTrigger className="py-5 font-serif text-xl font-normal hover:no-underline">
+      <AccordionTrigger className="py-5 text-sm font-semibold uppercase tracking-wide hover:no-underline hover:text-champagne">
         {title}
       </AccordionTrigger>
       <AccordionContent>{children}</AccordionContent>

@@ -59,7 +59,7 @@ function Panier() {
               <Link
                 to="/produit/$slug"
                 params={{ slug: product.slug }}
-                className="block aspect-[3/4] overflow-hidden bg-muted"
+                className="block aspect-square overflow-hidden bg-muted"
               >
                 <img
                   src={product.image}

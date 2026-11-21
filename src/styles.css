@@ -74,41 +74,42 @@
   --color-ink-foreground: var(--ink-foreground);
   --color-champagne: var(--champagne);
   --color-whatsapp: var(--whatsapp);
-  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Jost", system-ui, sans-serif;
   --font-sans: "Jost", system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.975 0.012 85);
-  --foreground: oklch(0.2 0.008 70);
-  --card: oklch(0.99 0.008 85);
-  --card-foreground: oklch(0.2 0.008 70);
-  --popover: oklch(0.99 0.008 85);
-  --popover-foreground: oklch(0.2 0.008 70);
-  --primary: oklch(0.2 0.008 70);
-  --primary-foreground: oklch(0.97 0.012 85);
-  --secondary: oklch(0.94 0.018 82);
-  --secondary-foreground: oklch(0.2 0.008 70);
-  --muted: oklch(0.93 0.016 82);
-  --muted-foreground: oklch(0.48 0.015 70);
-  --accent: oklch(0.78 0.065 80);
-  --accent-foreground: oklch(0.2 0.008 70);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.16 0 0);
+  --card: oklch(0.985 0.003 350);
+  --card-foreground: oklch(0.16 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0 0);
+  --primary: oklch(0.16 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.965 0.008 350);
+  --secondary-foreground: oklch(0.16 0 0);
+  --muted: oklch(0.965 0.006 350);
+  --muted-foreground: oklch(0.46 0.01 350);
+  --accent: oklch(0.6 0.2 350);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.86 0.02 80);
-  --input: oklch(0.86 0.02 80);
-  --ring: oklch(0.7 0.07 80);
-  --ink: oklch(0.17 0.006 70);
-  --ink-foreground: oklch(0.94 0.02 85);
-  --champagne: oklch(0.8 0.07 82);
+  --border: oklch(0.9 0.006 350);
+  --input: oklch(0.9 0.006 350);
+  --ring: oklch(0.6 0.2 350);
+  --ink: oklch(0.13 0 0);
+  --ink-foreground: oklch(0.99 0 0);
+  /* Accent rose de la marque (nom historique conservé pour les utilitaires existants). */
+  --champagne: oklch(0.62 0.2 350);
   --whatsapp: oklch(0.62 0.15 150);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.975 0.012 85);
+  --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.2 0.008 70);
   --sidebar-primary: oklch(0.2 0.008 70);
   --sidebar-primary-foreground: oklch(0.97 0.012 85);
@@ -131,14 +132,15 @@
 
 @layer base {
   body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
-  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; }
-  ::selection { background: var(--champagne); color: var(--ink); }
+  h1, h2, h3, h4 { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.015em; }
+  ::selection { background: var(--champagne); color: white; }
 }
 
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 @utility container-lux {
@@ -150,16 +152,16 @@
 }
 @utility btn-lux {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  padding: 0.95rem 1.8rem; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
+  padding: 0.95rem 1.8rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   background: var(--ink); color: var(--ink-foreground); border: 1px solid var(--ink);
-  transition: background 0.4s, color 0.4s;
-  &:hover { background: transparent; color: var(--ink); }
+  transition: background 0.25s, border-color 0.25s;
+  &:hover { background: var(--champagne); border-color: var(--champagne); }
 }
 @utility btn-lux-outline {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  padding: 0.95rem 1.8rem; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
-  border: 1px solid currentColor; transition: background 0.4s, color 0.4s;
-  &:hover { background: var(--champagne); color: var(--ink); border-color: var(--champagne); }
+  padding: 0.95rem 1.8rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid currentColor; transition: background 0.25s, color 0.25s, border-color 0.25s;
+  &:hover { background: var(--champagne); color: white; border-color: var(--champagne); }
 }
 @utility link-lux {
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
@@ -168,12 +170,12 @@
 }
 @utility example-tag {
   display: inline-flex; align-items: center; gap: 0.35rem;
-  border: 1px dashed var(--champagne); color: var(--muted-foreground);
+  border: 1px dashed var(--border); color: var(--muted-foreground);
   font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.2rem 0.55rem;
   background: color-mix(in oklab, var(--background) 85%, transparent);
 }
 @utility img-zoom {
-  transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes slowzoom { from { transform: scale(1.08); } to { transform: scale(1); } }

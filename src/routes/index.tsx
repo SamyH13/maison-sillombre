@@ -34,7 +34,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
         <div className="relative container-lux flex h-full flex-col justify-end pb-16 md:pb-24">
           <p className="eyebrow text-champagne animate-rise">Maison de parfumerie</p>
-          <h1 className="mt-5 max-w-3xl text-[3.2rem] leading-[0.95] md:text-8xl animate-rise [animation-delay:150ms]">
+          <h1 className="mt-5 max-w-3xl text-[2.8rem] leading-[0.95] md:text-7xl font-bold uppercase animate-rise [animation-delay:150ms]">
             L'ombre <em className="text-champagne">d'un</em> sillage.
           </h1>
           <p className="mt-6 max-w-md text-ink-foreground/75 leading-relaxed animate-rise [animation-delay:300ms]">
@@ -49,7 +49,7 @@ function Index() {
       <section className="container-lux py-24 md:py-36 grid md:grid-cols-12 gap-10">
         <p className="eyebrow text-muted-foreground md:col-span-3">La Maison</p>
         <div className="md:col-span-8">
-          <h2 className="text-4xl md:text-6xl leading-[1.05]">Un parfum ne s'annonce pas. <span className="italic text-muted-foreground">Il se devine</span>, il s'attarde, il reste.</h2>
+          <h2 className="text-3xl md:text-5xl leading-[1.1]">Un parfum ne s'annonce pas. <span className="italic text-muted-foreground">Il se devine</span>, il s'attarde, il reste.</h2>
           <p className="mt-8 max-w-xl text-muted-foreground leading-relaxed">Maison Sillombre réunit des fragrances et des soins sélectionnés par un commerçant indépendant. Le texte de présentation définitif de la maison sera rédigé avec vous.</p>
           <Link to="/maison" className="mt-8 inline-block eyebrow link-lux">Notre histoire</Link>
         </div>
@@ -57,14 +57,14 @@ function Index() {
 
       <section className="container-lux">
         <div className="flex items-end justify-between mb-10">
-          <div><p className="eyebrow text-muted-foreground">Univers</p><h2 className="mt-3 text-4xl md:text-5xl">Explorer par univers</h2></div>
+          <div><p className="eyebrow text-muted-foreground">Univers</p><h2 className="mt-2 text-2xl md:text-3xl uppercase">Explorer par univers</h2></div>
         </div>
         <div className="-mx-5 px-5 md:mx-0 md:px-0 flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-2">
-          {categories.map((c, i) => (
-            <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group relative shrink-0 w-[72%] sm:w-[45%] md:w-auto snap-start overflow-hidden ${i % 2 ? "md:mt-12" : ""}`}>
-              <div className="aspect-[3/4] overflow-hidden bg-muted"><img src={c.image} alt="" loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" /></div>
+          {categories.map((c) => (
+            <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group relative shrink-0 w-[72%] sm:w-[45%] md:w-auto snap-start overflow-hidden`}>
+              <div className="aspect-square overflow-hidden bg-muted"><img src={c.image} alt="" loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" /></div>
               <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-ink/85 to-transparent text-ink-foreground">
-                <h3 className="text-2xl">{c.name}</h3>
+                <h3 className="text-xl font-semibold uppercase">{c.name}</h3>
                 <p className="mt-1 text-xs text-ink-foreground/70">{c.tagline}</p>
               </div>
             </Link>
@@ -78,11 +78,11 @@ function Index() {
         <div className="container-lux grid md:grid-cols-2 items-center gap-12 py-20 md:py-0">
           <div className="md:py-28">
             <p className="eyebrow text-champagne">Essences d'Orient</p>
-            <h2 className="mt-4 text-5xl md:text-6xl leading-[1.02]">Oud, ambre <br /><em>&amp; safran.</em></h2>
+            <h2 className="mt-3 text-4xl md:text-5xl uppercase leading-[1.02]">Oud, ambre <br /><em>&amp; safran.</em></h2>
             <p className="mt-6 max-w-md text-ink-foreground/70 leading-relaxed">Une part de la maison est dédiée aux compositions orientales : profondes, chaudes, enveloppantes.</p>
             <Link to="/catalogue" search={{ q: "oriental" }} className="mt-9 btn-lux-outline">Voir les parfums orientaux</Link>
           </div>
-          <img src={orient?.image} alt={orient ? `${orient.brand} ${orient.name}` : ""} loading="lazy" width={768} height={1024} className="w-full aspect-[4/5] object-cover" />
+          <img src={orient?.image} alt={orient ? `${orient.brand} ${orient.name}` : ""} loading="lazy" width={768} height={1024} className="w-full aspect-square object-cover" />
         </div>
       </section>
 
@@ -103,7 +103,7 @@ function Showcase({ title, eyebrow, list, cat, cols = 4 }: { title: string; eyeb
   return (
     <section className="container-lux mt-24 md:mt-36">
       <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-        <div><p className="eyebrow text-muted-foreground">{eyebrow}</p><h2 className="mt-3 text-4xl md:text-5xl">{title}</h2></div>
+        <div><p className="eyebrow text-muted-foreground">{eyebrow}</p><h2 className="mt-2 text-2xl md:text-3xl uppercase">{title}</h2></div>
         <Link to="/catalogue" search={{ cat }} className="eyebrow link-lux">Tout voir</Link>
       </div>
       <div className={`grid grid-cols-2 ${cols === 3 ? "md:grid-cols-3" : "lg:grid-cols-4"} gap-x-4 gap-y-10 md:gap-x-6`}>

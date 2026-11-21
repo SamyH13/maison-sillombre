@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" aria-label="Maison Sillombre — accueil" className={`group inline-flex flex-col items-center leading-none ${className}`}>
-      <span className="eyebrow text-[0.55rem] tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors">Maison</span>
-      <span className="font-serif text-2xl md:text-[1.7rem] tracking-[0.28em] mt-1">SILLOMBRE</span>
+    <Link to="/" aria-label="Maison Sillombre — accueil" className={`inline-flex items-baseline gap-1.5 leading-none ${className}`}>
+      <span className="text-[0.62rem] md:text-xs font-semibold uppercase tracking-[0.2em] text-champagne">Maison</span>
+      <span className="text-lg md:text-2xl font-bold uppercase tracking-[0.12em]">Sillombre</span>
     </Link>
   );
 }

@@ -1,10 +1,13 @@
 import type { ReactNode } from "react";
+
 export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <section className="container-lux pt-14 md:pt-24 pb-10 md:pb-14 text-center animate-rise">
-      <p className="eyebrow text-muted-foreground">{eyebrow}</p>
-      <h1 className="mt-4 text-5xl md:text-7xl">{title}</h1>
-      {children && <div className="mx-auto mt-6 max-w-xl text-muted-foreground leading-relaxed">{children}</div>}
+    <section className="bg-muted mb-8 md:mb-12">
+      <div className="container-lux py-10 md:py-14 animate-rise">
+        <p className="eyebrow text-champagne">{eyebrow}</p>
+        <h1 className="mt-2 text-3xl md:text-5xl uppercase">{title}</h1>
+        {children && <div className="mt-3 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">{children}</div>}
+      </div>
     </section>
   );
 }
