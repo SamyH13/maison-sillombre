@@ -72,50 +72,72 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
-  --color-champagne: var(--champagne);
+  --color-ink-soft: var(--ink-soft);
+  --color-terracotta: var(--terracotta);
+  --color-cedar: var(--cedar);
+  --color-cedar-foreground: var(--cedar-foreground);
+  --color-zellige: var(--zellige);
+  --color-zellige-deep: var(--zellige-deep);
+  --color-brass: var(--brass);
   --color-whatsapp: var(--whatsapp);
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Jost", system-ui, sans-serif;
+  --font-serif: "Reem Kufi", "Readex Pro", system-ui, sans-serif;
+  --font-sans: "Readex Pro", system-ui, sans-serif;
 }
 
+/*
+ * Monde visuel « riad » : enduit tadelakt ocre-rose sur toutes les pages,
+ * niches en arc outrepassé pour les flacons, bois de cèdre pour les fonds sombres,
+ * glaçure zellige émeraude réservée aux actions.
+ */
 :root {
-  --radius: 0.25rem;
-  --background: oklch(0.975 0.012 85);
-  --foreground: oklch(0.2 0.008 70);
-  --card: oklch(0.99 0.008 85);
-  --card-foreground: oklch(0.2 0.008 70);
-  --popover: oklch(0.99 0.008 85);
-  --popover-foreground: oklch(0.2 0.008 70);
-  --primary: oklch(0.2 0.008 70);
-  --primary-foreground: oklch(0.97 0.012 85);
-  --secondary: oklch(0.94 0.018 82);
-  --secondary-foreground: oklch(0.2 0.008 70);
-  --muted: oklch(0.93 0.016 82);
-  --muted-foreground: oklch(0.48 0.015 70);
-  --accent: oklch(0.78 0.065 80);
-  --accent-foreground: oklch(0.2 0.008 70);
-  --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.86 0.02 80);
-  --input: oklch(0.86 0.02 80);
-  --ring: oklch(0.7 0.07 80);
-  --ink: oklch(0.17 0.006 70);
-  --ink-foreground: oklch(0.94 0.02 85);
-  --champagne: oklch(0.8 0.07 82);
-  --whatsapp: oklch(0.62 0.15 150);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.975 0.012 85);
-  --sidebar-foreground: oklch(0.2 0.008 70);
-  --sidebar-primary: oklch(0.2 0.008 70);
-  --sidebar-primary-foreground: oklch(0.97 0.012 85);
-  --sidebar-accent: oklch(0.94 0.018 82);
-  --sidebar-accent-foreground: oklch(0.2 0.008 70);
-  --sidebar-border: oklch(0.86 0.02 80);
-  --sidebar-ring: oklch(0.7 0.07 80);
+  --radius: 0.125rem;
+  /* Enduit tadelakt */
+  --background: oklch(0.8 0.072 62);
+  --foreground: oklch(0.22 0.04 40);
+  --card: oklch(0.86 0.05 68);
+  --card-foreground: oklch(0.22 0.04 40);
+  --popover: oklch(0.86 0.05 68);
+  --popover-foreground: oklch(0.22 0.04 40);
+  /* Actions : glaçure zellige */
+  --primary: oklch(0.42 0.08 175);
+  --primary-foreground: oklch(0.93 0.035 75);
+  --secondary: oklch(0.7 0.095 50);
+  --secondary-foreground: oklch(0.2 0.04 40);
+  --muted: oklch(0.74 0.08 55);
+  --muted-foreground: oklch(0.36 0.06 40);
+  --accent: oklch(0.7 0.1 75);
+  --accent-foreground: oklch(0.2 0.04 40);
+  --destructive: oklch(0.5 0.17 27);
+  --destructive-foreground: oklch(0.97 0.01 70);
+  --border: oklch(0.6 0.08 48);
+  --input: oklch(0.6 0.08 48);
+  --ring: oklch(0.42 0.08 175);
+  --ink: oklch(0.22 0.04 40);
+  --ink-foreground: oklch(0.93 0.035 75);
+  --ink-soft: oklch(0.36 0.06 40);
+  /* Mur secondaire en terre cuite */
+  --terracotta: oklch(0.66 0.1 48);
+  /* Bois de cèdre : intérieur des niches, pied de page, menu */
+  --cedar: oklch(0.25 0.04 40);
+  --cedar-foreground: oklch(0.9 0.04 70);
+  --zellige: oklch(0.42 0.08 175);
+  --zellige-deep: oklch(0.33 0.06 175);
+  --brass: oklch(0.7 0.1 75);
+  --whatsapp: oklch(0.55 0.13 150);
+  --chart-1: oklch(0.42 0.08 175);
+  --chart-2: oklch(0.66 0.1 48);
+  --chart-3: oklch(0.7 0.1 75);
+  --chart-4: oklch(0.37 0.1 262);
+  --chart-5: oklch(0.25 0.04 40);
+  --sidebar: oklch(0.8 0.072 62);
+  --sidebar-foreground: oklch(0.22 0.04 40);
+  --sidebar-primary: oklch(0.42 0.08 175);
+  --sidebar-primary-foreground: oklch(0.93 0.035 75);
+  --sidebar-accent: oklch(0.74 0.08 55);
+  --sidebar-accent-foreground: oklch(0.22 0.04 40);
+  --sidebar-border: oklch(0.6 0.08 48);
+  --sidebar-ring: oklch(0.42 0.08 175);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -130,55 +152,109 @@
 }
 
 @layer base {
-  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
-  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; }
-  ::selection { background: var(--champagne); color: var(--ink); }
+  html { scrollbar-color: var(--terracotta) var(--background); }
+  body { font-family: var(--font-sans); font-weight: 350; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; line-height: 1.05; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--zellige); color: var(--primary-foreground); }
+  input, textarea { caret-color: var(--zellige); }
+  :focus-visible { outline: 2px solid var(--zellige); outline-offset: 3px; }
+  a { text-underline-offset: 0.22em; }
 }
 
+/* Enduit tadelakt : chaux polie, marbrures douces et grain fin. */
+@utility tadelakt {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 18% 22%, oklch(0.84 0.06 68 / 0.55), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 82% 70%, oklch(0.74 0.085 55 / 0.45), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.18 0 0 0 0 0.1 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Mur secondaire en terre cuite, même grain. */
+@utility tadelakt-terracotta {
+  background-color: var(--terracotta);
+  background-image:
+    radial-gradient(ellipse 55% 45% at 75% 25%, oklch(0.71 0.095 52 / 0.6), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.13 0 0 0 0 0.07 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Niche en arc outrepassé. Toujours au format 3/4 : le masque suit ce rapport. */
+@utility niche {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cedar);
+  mask: url("./assets/ornament/arch.svg") center / 100% 100% no-repeat;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* Ombre portée du haut de l'arc : la niche est creusée dans le mur. */
+    background: linear-gradient(to bottom, oklch(0.2 0.04 40 / 0.55), transparent 22%),
+      linear-gradient(to right, oklch(0.2 0.04 40 / 0.35), transparent 9%, transparent 91%, oklch(0.2 0.04 40 / 0.35));
+  }
+}
+/* Soubassement de zellige (étoiles à huit branches). */
+@utility zellige-band {
+  background: url("./assets/ornament/zellige.svg") center / 48px 48px repeat;
+}
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
 }
 @utility container-lux {
   width: 100%;
-  max-width: 88rem;
+  max-width: 84rem;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: 1rem;
   @media (min-width: 768px) { padding-inline: 2.5rem; }
 }
+/* Bouton principal : carreau de zellige émaillé. */
 @utility btn-lux {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  padding: 0.95rem 1.8rem; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
-  background: var(--ink); color: var(--ink-foreground); border: 1px solid var(--ink);
-  transition: background 0.4s, color 0.4s;
-  &:hover { background: transparent; color: var(--ink); }
+  min-height: 3rem; padding: 0.8rem 1.6rem; font-size: 0.95rem; font-weight: 450;
+  border-radius: var(--radius);
+  background: linear-gradient(to bottom, oklch(1 0 0 / 0.14), transparent 45%), var(--zellige);
+  color: var(--primary-foreground);
+  box-shadow: 0 2px 0 var(--zellige-deep), 0 6px 14px -6px oklch(0.25 0.06 175 / 0.7);
+  transition: background-color 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo);
+  &:hover { background-color: var(--zellige-deep); }
+  &:active { transform: translateY(2px); box-shadow: 0 0 0 var(--zellige-deep), 0 3px 8px -4px oklch(0.25 0.06 175 / 0.7); }
 }
 @utility btn-lux-outline {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  padding: 0.95rem 1.8rem; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
-  border: 1px solid currentColor; transition: background 0.4s, color 0.4s;
-  &:hover { background: var(--champagne); color: var(--ink); border-color: var(--champagne); }
+  min-height: 3rem; padding: 0.8rem 1.6rem; font-size: 0.95rem; font-weight: 450;
+  border-radius: var(--radius);
+  border: 1px solid currentColor; transition: background-color 0.25s, color 0.25s;
+  &:hover { background: var(--ink); color: var(--ink-foreground); border-color: var(--ink); }
 }
 @utility link-lux {
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
-  transition: background-size 0.5s ease;
-  &:hover { background-size: 100% 1px; }
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.25s;
+  &:hover { text-decoration-color: currentColor; }
 }
 @utility example-tag {
   display: inline-flex; align-items: center; gap: 0.35rem;
-  border: 1px dashed var(--champagne); color: var(--muted-foreground);
-  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.2rem 0.55rem;
-  background: color-mix(in oklab, var(--background) 85%, transparent);
+  border: 1px dashed var(--ink-soft); color: var(--ink-soft);
+  font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: var(--radius);
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 }
 @utility img-zoom {
-  transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 1.2s var(--ease-out-expo);
 }
-@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-@keyframes slowzoom { from { transform: scale(1.08); } to { transform: scale(1); } }
-@utility animate-rise { animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-@utility animate-slowzoom { animation: slowzoom 6s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+/* Le moment d'ouverture : la lumière entre dans les niches du mur. */
+@keyframes niche-light { from { filter: brightness(0.45) saturate(0.7); } to { filter: none; } }
+@utility animate-rise { animation: rise 0.9s var(--ease-out-expo) both; }
+@utility animate-niche-light { animation: niche-light 1.6s var(--ease-out-expo) both; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

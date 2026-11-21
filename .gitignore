@@ -33,3 +33,4 @@ dist-ssr
 
 # Réglages Claude Code propres à une machine
 .claude/settings.local.json
+.impeccable/hook.cache.json

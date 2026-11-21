@@ -9,10 +9,19 @@ describe("catalogue", () => {
   it("formate en euros", () => {
     expect(formatPrice(4950)).toBe("49,50 €");
   });
-  it("filtre par catégorie", () => {
-    expect(filterProducts(products, { cat: "orientaux" }).every((p) => p.category === "orientaux")).toBe(true);
+  it("filtre par collection", () => {
+    const lattafa = filterProducts(products, { cat: "lattafa" });
+    expect(lattafa.length).toBeGreaterThan(0);
+    expect(lattafa.every((p) => p.category === "lattafa")).toBe(true);
   });
-  it("toutes les fiches de démonstration sont marquées comme exemples", () => {
-    expect(products.every((p) => p.isExample && p.variants.every((v) => v.priceCents === null))).toBe(true);
+  it("cherche aussi dans la marque", () => {
+    expect(filterProducts(products, { q: "volaré" }).every((p) => p.category === "kenzie")).toBe(true);
+  });
+  it("n'invente aucun prix ni stock tant que le commerçant ne les a pas fournis", () => {
+    expect(products.every((p) => p.variants.every((v) => v.priceCents === null && v.stock === null))).toBe(true);
+  });
+  it("chaque produit a un identifiant unique et un texte alternatif", () => {
+    expect(new Set(products.map((p) => p.slug)).size).toBe(products.length);
+    expect(products.every((p) => p.alt.length > 10)).toBe(true);
   });
 });

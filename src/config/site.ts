@@ -9,6 +9,12 @@ export const siteConfig = {
   /** Numéro WhatsApp au format international sans "+" ni espaces, ex. "33612345678". */
   whatsappNumber: null as string | null,
   contactEmail: null as string | null,
+  /**
+   * Marchés où se tient le stand. null = pas encore communiqués : l'accueil
+   * l'indique honnêtement au lieu d'inventer des lieux ou des horaires.
+   * Exemple : [{ place: "Marché de …", city: "…", schedule: "Samedi, 8 h – 13 h" }]
+   */
+  markets: null as { place: string; city: string; schedule: string }[] | null,
   /** Activé seulement une fois paiement et commandes branchés côté serveur. */
   commerceEnabled: false,
 };

@@ -1,17 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import hero from "@/assets/hero-flacon.jpg";
-import { categories, products } from "@/data/catalog";
+import { MessageCircle } from "lucide-react";
+import { categories, displayName, getProduct, products, type Product } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
-import { ExampleTag } from "@/components/site/ExampleTag";
+import { siteConfig, whatsappLink } from "@/config/site";
+
+const DESCRIPTION = "Parfums d'Orient (Lattafa, Oud Mood, Kenzie par Volaré) et soins capillaires IMP'hair, vendus sur les marchés par Maison Sillombre.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison Sillombre — Parfumerie confidentielle" },
-      { name: "description", content: "Parfums femme, homme, orientaux et soins, sélectionnés par une maison indépendante." },
-      { property: "og:title", content: "Maison Sillombre — Parfumerie confidentielle" },
-      { property: "og:description", content: "Parfums femme, homme, orientaux et soins, sélectionnés par une maison indépendante." },
+      { title: "Maison Sillombre — Parfums d'Orient, vendus au marché" },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: "Maison Sillombre — Parfums d'Orient, vendus au marché" },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -19,90 +20,119 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+/** Les trois flacons du mur d'accueil : le centre est la niche haute. */
+const wall = ["yara-vieux-rose", "oud-mood-reminiscence", "asad-elixir"]
+  .map((s) => getProduct(s))
+  .filter((p): p is Product => Boolean(p));
+
 function Index() {
-  const nouveautes = products.filter((p) => p.isNew);
-  const coups = products.filter((p) => p.isFavorite);
+  const parfums = products.filter((p) => p.kind === "parfum");
   return (
     <>
-      <section className="relative -mt-16 md:-mt-20 h-[100svh] min-h-[560px] overflow-hidden bg-ink text-ink-foreground">
-        <img src={hero} alt="Flacon de parfum sur pierre ivoire dans une lumière dorée" width={1920} height={1088} className="absolute inset-0 size-full object-cover object-[60%_center] animate-slowzoom opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-        <div className="relative container-lux flex h-full flex-col justify-end pb-16 md:pb-24">
-          <p className="eyebrow text-champagne animate-rise">Maison de parfumerie</p>
-          <h1 className="mt-5 max-w-3xl text-[3.2rem] leading-[0.95] md:text-8xl animate-rise [animation-delay:150ms]">
-            L'ombre <em className="text-champagne">d'un</em> sillage.
-          </h1>
-          <p className="mt-6 max-w-md text-ink-foreground/75 leading-relaxed animate-rise [animation-delay:300ms]">
-            Parfums, essences orientales et soins, choisis un à un pour celles et ceux qui préfèrent la confidence à l'évidence.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3 animate-rise [animation-delay:450ms]">
-            <Link to="/catalogue" search={{}} className="btn-lux-outline">Découvrir le catalogue <ArrowRight className="size-4" strokeWidth={1.25} /></Link>
+      <section className="relative -mt-16 md:-mt-20 pt-16 md:pt-20 overflow-hidden" aria-labelledby="titre-accueil">
+        <div className="container-lux grid md:grid-cols-12 items-end gap-10 md:gap-8 pt-8 md:pt-14">
+          <div className="md:col-span-5 lg:col-span-5 md:pb-16 animate-rise">
+            <h1 id="titre-accueil" className="text-[2.75rem] leading-[1] sm:text-6xl lg:text-[4.75rem] lg:leading-[0.98] tracking-[-0.02em]">
+              Les parfums d'Orient de notre stand
+            </h1>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
+              Oud, musc, vanille, ambre : retrouvez ici les flacons Lattafa, Oud Mood et Kenzie que nous vendons sur les marchés, et les soins IMP'hair.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link to="/catalogue" search={{}} className="btn-lux">Voir les parfums</Link>
+              <a href="#marches" className="link-lux py-2">Où nous trouver</a>
+            </div>
+          </div>
+          <div className="md:col-span-7 lg:-mr-6">
+            <div className="grid grid-cols-[1fr_1.35fr_1fr] items-end gap-3 sm:gap-4 lg:gap-5">
+              {wall.map((p, i) => (
+                <Link key={p.slug} to="/produit/$slug" params={{ slug: p.slug }} className="group block" aria-label={`Voir ${displayName(p)}`}>
+                  <div className={`niche animate-niche-light ${i === 1 ? "" : "mb-[8%]"}`} style={{ animationDelay: `${200 + i * 180}ms` }}>
+                    <img src={p.image} alt={p.alt} width={900} height={1200} fetchPriority={i === 1 ? "high" : undefined}
+                      className="size-full object-cover img-zoom group-hover:scale-[1.04]" />
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
+        {/* Banquette de terre cuite sur laquelle reposent les niches. */}
+        <div className="tadelakt-terracotta mt-0 h-6 md:h-8 shadow-[inset_0_6px_10px_-6px_oklch(0.2_0.04_40/0.5)]" aria-hidden="true" />
       </section>
 
-      <section className="container-lux py-24 md:py-36 grid md:grid-cols-12 gap-10">
-        <p className="eyebrow text-muted-foreground md:col-span-3">La Maison</p>
-        <div className="md:col-span-8">
-          <h2 className="text-4xl md:text-6xl leading-[1.05]">Un parfum ne s'annonce pas. <span className="italic text-muted-foreground">Il se devine</span>, il s'attarde, il reste.</h2>
-          <p className="mt-8 max-w-xl text-muted-foreground leading-relaxed">Maison Sillombre réunit des fragrances et des soins sélectionnés par un commerçant indépendant. Le texte de présentation définitif de la maison sera rédigé avec vous.</p>
-          <Link to="/maison" className="mt-8 inline-block eyebrow link-lux">Notre histoire</Link>
+      <section className="tadelakt-terracotta pb-20 md:pb-28" aria-labelledby="titre-collections">
+        <div className="container-lux pt-14 md:pt-20">
+          <div className="max-w-2xl">
+            <h2 id="titre-collections" className="text-4xl md:text-6xl">Quatre collections</h2>
+            <p className="mt-4 text-lg text-ink">Trois maisons de parfums et une gamme de soins pour les cheveux.</p>
+          </div>
+          <ul className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-8">
+            {categories.map((c) => (
+              <li key={c.slug}>
+                <Link to="/catalogue" search={{ cat: c.slug }} className="group block">
+                  <div className="niche"><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="size-full object-cover img-zoom group-hover:scale-[1.04]" /></div>
+                  <h3 className="mt-4 text-2xl md:text-3xl group-hover:text-zellige-deep transition-colors">{c.name}</h3>
+                  <p className="mt-1 text-ink">{c.tagline}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="container-lux">
-        <div className="flex items-end justify-between mb-10">
-          <div><p className="eyebrow text-muted-foreground">Univers</p><h2 className="mt-3 text-4xl md:text-5xl">Explorer par famille</h2></div>
+      <section className="container-lux pt-20 md:pt-28" aria-labelledby="titre-parfums">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="titre-parfums" className="text-4xl md:text-6xl">Tous nos parfums</h2>
+          <Link to="/catalogue" search={{}} className="link-lux py-2">Voir le catalogue complet</Link>
         </div>
-        <div className="-mx-5 px-5 md:mx-0 md:px-0 flex md:grid md:grid-cols-5 gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-          {categories.map((c, i) => (
-            <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group relative shrink-0 w-[72%] sm:w-[45%] md:w-auto snap-start overflow-hidden ${i % 2 ? "md:mt-12" : ""}`}>
-              <div className="aspect-[3/4] overflow-hidden bg-muted"><img src={c.image} alt="" loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" /></div>
-              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-ink/85 to-transparent text-ink-foreground">
-                <h3 className="text-2xl">{c.name}</h3>
-                <p className="mt-1 text-xs text-ink-foreground/70">{c.tagline}</p>
-              </div>
-            </Link>
+        <div className="mt-10 -mx-4 px-4 md:mx-0 md:px-0 flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar" tabIndex={0} aria-label="Parfums, faire défiler horizontalement">
+          {parfums.map((p) => (
+            <div key={p.slug} className="w-[62%] sm:w-[38%] md:w-[26%] lg:w-[21%] shrink-0 snap-start"><ProductCard product={p} /></div>
           ))}
         </div>
       </section>
 
-      <Showcase title="Nouveautés" eyebrow="Fraîchement arrivés" list={nouveautes} />
-
-      <section className="mt-24 md:mt-36 bg-ink text-ink-foreground">
-        <div className="container-lux grid md:grid-cols-2 items-center gap-12 py-20 md:py-0">
-          <div className="md:py-28">
-            <p className="eyebrow text-champagne">Essences d'Orient</p>
-            <h2 className="mt-4 text-5xl md:text-6xl leading-[1.02]">Oud, ambre <br /><em>&amp; safran.</em></h2>
-            <p className="mt-6 max-w-md text-ink-foreground/70 leading-relaxed">Une part de la maison est dédiée aux compositions orientales : profondes, chaudes, tenaces.</p>
-            <Link to="/catalogue" search={{ cat: "orientaux" }} className="mt-9 btn-lux-outline">Voir les orientaux</Link>
-          </div>
-          <img src={categories[2]?.image} alt="Flacon oriental en laiton, bois d'oud, ambre et safran" loading="lazy" width={768} height={1024} className="w-full aspect-[4/5] object-cover" />
-        </div>
-      </section>
-
-      <Showcase title="Coups de cœur" eyebrow="Sélection de la maison" list={coups} />
-
-      <section className="container-lux mt-24 md:mt-32">
-        <div className="border border-dashed border-champagne p-8 md:p-12 text-center">
-          <ExampleTag label="Section à confirmer" />
-          <h2 className="mt-5 text-3xl md:text-4xl">Nos engagements</h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed">Livraison, retours, échantillons, conseil… Cette section n'affichera que les avantages réellement proposés, une fois confirmés par le commerçant.</p>
-        </div>
-      </section>
+      <Markets />
     </>
   );
 }
 
-function Showcase({ title, eyebrow, list }: { title: string; eyebrow: string; list: typeof products }) {
+function Markets() {
+  const markets = siteConfig.markets;
+  const wa = whatsappLink("Bonjour Maison Sillombre, sur quel marché êtes-vous cette semaine ?");
   return (
-    <section className="container-lux mt-24 md:mt-36">
-      <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-        <div><p className="eyebrow text-muted-foreground">{eyebrow}</p><h2 className="mt-3 text-4xl md:text-5xl">{title}</h2></div>
-        <Link to="/catalogue" search={{}} className="eyebrow link-lux">Tout voir</Link>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6">
-        {list.slice(0, 4).map((p) => <ProductCard key={p.slug} product={p} />)}
+    <section id="marches" className="container-lux mt-24 md:mt-32 scroll-mt-24" aria-labelledby="titre-marches">
+      <div className="grid md:grid-cols-12 gap-10 items-center">
+        <div className="md:col-span-5 order-2 md:order-1">
+          <div className="niche max-w-sm mx-auto md:mx-0">
+            <img src={getProduct("musk-mood")?.image} alt="" loading="lazy" width={900} height={1200} className="size-full object-cover" />
+          </div>
+        </div>
+        <div className="md:col-span-7 order-1 md:order-2">
+          <h2 id="titre-marches" className="text-4xl md:text-6xl">Venez nous voir au marché</h2>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+            Maison Sillombre vend ses parfums et ses soins sur les marchés. C'est là que vous pouvez découvrir les flacons et demander conseil.
+          </p>
+          {markets && markets.length > 0 ? (
+            <ul className="mt-8 divide-y divide-border border-y border-border max-w-xl">
+              {markets.map((m) => (
+                <li key={`${m.place}-${m.schedule}`} className="flex flex-wrap justify-between gap-x-6 gap-y-1 py-4">
+                  <span><span className="font-serif text-xl">{m.place}</span> <span className="text-ink-soft">{m.city}</span></span>
+                  <span className="text-ink-soft">{m.schedule}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-8 max-w-xl border border-dashed border-ink-soft/60 px-5 py-4 text-ink-soft">
+              Les marchés, jours et horaires seront indiqués ici très prochainement.
+            </p>
+          )}
+          {wa && (
+            <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-lux mt-8">
+              <MessageCircle className="size-5" strokeWidth={1.5} /> Demander sur WhatsApp
+            </a>
+          )}
+        </div>
       </div>
     </section>
   );

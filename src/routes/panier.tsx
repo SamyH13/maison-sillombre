@@ -14,8 +14,8 @@ export const Route = createFileRoute("/panier")({
   }),
   component: () => (
     <>
-      <PageHero eyebrow="Panier" title="Votre panier est vide">La boutique en ligne est en préparation : l'ajout au panier et le paiement ne sont pas encore disponibles.</PageHero>
-      <div className="text-center"><Link to="/contact" className="btn-lux">Nous contacter</Link></div>
+      <PageHero title="Votre panier est vide">La boutique en ligne est en préparation : l'ajout au panier et le paiement ne sont pas encore disponibles.</PageHero>
+      <div className="container-lux"><Link to="/contact" className="btn-lux">Nous contacter</Link></div>
     </>
   ),
 });
