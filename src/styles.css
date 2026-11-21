@@ -92,18 +92,18 @@
 :root {
   --radius: 0.125rem;
   /* Enduit tadelakt */
-  --background: oklch(0.8 0.072 62);
+  --background: oklch(0.8 0.07 46);
   --foreground: oklch(0.22 0.04 40);
-  --card: oklch(0.86 0.05 68);
+  --card: oklch(0.86 0.05 52);
   --card-foreground: oklch(0.22 0.04 40);
-  --popover: oklch(0.86 0.05 68);
+  --popover: oklch(0.86 0.05 52);
   --popover-foreground: oklch(0.22 0.04 40);
   /* Actions : glaçure zellige */
   --primary: oklch(0.42 0.08 175);
   --primary-foreground: oklch(0.93 0.035 75);
   --secondary: oklch(0.7 0.095 50);
   --secondary-foreground: oklch(0.2 0.04 40);
-  --muted: oklch(0.74 0.08 55);
+  --muted: oklch(0.74 0.08 42);
   --muted-foreground: oklch(0.36 0.06 40);
   --accent: oklch(0.7 0.1 75);
   --accent-foreground: oklch(0.2 0.04 40);
@@ -116,7 +116,7 @@
   --ink-foreground: oklch(0.93 0.035 75);
   --ink-soft: oklch(0.36 0.06 40);
   /* Mur secondaire en terre cuite */
-  --terracotta: oklch(0.66 0.1 48);
+  --terracotta: oklch(0.64 0.1 40);
   /* Bois de cèdre : intérieur des niches, pied de page, menu */
   --cedar: oklch(0.25 0.04 40);
   --cedar-foreground: oklch(0.9 0.04 70);
@@ -129,11 +129,11 @@
   --chart-3: oklch(0.7 0.1 75);
   --chart-4: oklch(0.37 0.1 262);
   --chart-5: oklch(0.25 0.04 40);
-  --sidebar: oklch(0.8 0.072 62);
+  --sidebar: oklch(0.8 0.07 46);
   --sidebar-foreground: oklch(0.22 0.04 40);
   --sidebar-primary: oklch(0.42 0.08 175);
   --sidebar-primary-foreground: oklch(0.93 0.035 75);
-  --sidebar-accent: oklch(0.74 0.08 55);
+  --sidebar-accent: oklch(0.74 0.08 42);
   --sidebar-accent-foreground: oklch(0.22 0.04 40);
   --sidebar-border: oklch(0.6 0.08 48);
   --sidebar-ring: oklch(0.42 0.08 175);
@@ -154,7 +154,7 @@
 @layer base {
   html { scrollbar-color: var(--terracotta) var(--background); }
   body { font-family: var(--font-sans); font-weight: 350; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; line-height: 1.05; }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; word-spacing: 0.14em; text-wrap: balance; line-height: 1.05; }
   p { text-wrap: pretty; }
   ::selection { background: var(--zellige); color: var(--primary-foreground); }
   input, textarea { caret-color: var(--zellige); }
@@ -166,33 +166,50 @@
 @utility tadelakt {
   background-color: var(--background);
   background-image:
-    radial-gradient(ellipse 60% 40% at 18% 22%, oklch(0.84 0.06 68 / 0.55), transparent 70%),
-    radial-gradient(ellipse 50% 45% at 82% 70%, oklch(0.74 0.085 55 / 0.45), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 18% 22%, oklch(0.84 0.055 52 / 0.55), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 82% 70%, oklch(0.74 0.085 38 / 0.45), transparent 70%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.18 0 0 0 0 0.1 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 /* Mur secondaire en terre cuite, même grain. */
 @utility tadelakt-terracotta {
   background-color: var(--terracotta);
   background-image:
-    radial-gradient(ellipse 55% 45% at 75% 25%, oklch(0.71 0.095 52 / 0.6), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 75% 25%, oklch(0.69 0.095 44 / 0.6), transparent 70%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.13 0 0 0 0 0.07 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-/* Niche en arc outrepassé. Toujours au format 3/4 : le masque suit ce rapport. */
+/* Niche en arc outrepassé, creusée dans l'enduit. Toujours au format 3/4 : le masque suit ce rapport.
+ * L'élément porte le tableau (embrasure plus sombre) ; l'image enfant est la profondeur de la niche. */
 @utility niche {
   position: relative;
   aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: var(--cedar);
+  /* Embrasure : l'épaisseur du mur, éclairée par le haut, plus claire sur la lèvre basse. */
+  background: linear-gradient(to bottom, oklch(0.42 0.07 38), oklch(0.56 0.085 42) 70%, oklch(0.78 0.06 48));
   mask: url("./assets/ornament/arch.svg") center / 100% 100% no-repeat;
+  & > img, & > picture {
+    position: absolute;
+    inset: 5% 4.5% 2.5%;
+    width: 91%;
+    height: 92.5%;
+    mask: url("./assets/ornament/arch.svg") center / 100% 100% no-repeat;
+  }
+  /* Ombre propre de l'intrados : un anneau qui suit l'arc, sombre en haut, qui s'éteint vers le bas. */
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: 5% 4.5% 2.5%;
     pointer-events: none;
-    /* Ombre portée du haut de l'arc : la niche est creusée dans le mur. */
-    background: linear-gradient(to bottom, oklch(0.2 0.04 40 / 0.55), transparent 22%),
-      linear-gradient(to right, oklch(0.2 0.04 40 / 0.35), transparent 9%, transparent 91%, oklch(0.2 0.04 40 / 0.35));
+    background: linear-gradient(to bottom, oklch(0.16 0.03 40 / 0.75), oklch(0.16 0.03 40 / 0.35) 45%, transparent 75%);
+    mask: url("./assets/ornament/arch.svg") center / 100% 100% no-repeat,
+      url("./assets/ornament/arch.svg") center bottom / 88% 93% no-repeat;
+    mask-composite: exclude;
   }
+}
+/* Seuil de terre cuite sur lequel reposent une rangée de niches. */
+@utility niche-sill {
+  height: 0.9rem;
+  background-color: var(--terracotta);
+  background-image: linear-gradient(to bottom, oklch(0.78 0.06 46 / 0.7), transparent 30%);
+  box-shadow: 0 10px 16px -10px oklch(0.2 0.04 40 / 0.6);
 }
 /* Soubassement de zellige (étoiles à huit branches). */
 @utility zellige-band {
@@ -217,12 +234,12 @@
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
   min-height: 3rem; padding: 0.8rem 1.6rem; font-size: 0.95rem; font-weight: 450;
   border-radius: var(--radius);
-  background: linear-gradient(to bottom, oklch(1 0 0 / 0.14), transparent 45%), var(--zellige);
+  background: var(--zellige);
   color: var(--primary-foreground);
-  box-shadow: 0 2px 0 var(--zellige-deep), 0 6px 14px -6px oklch(0.25 0.06 175 / 0.7);
+  box-shadow: 0 6px 14px -6px oklch(0.25 0.06 175 / 0.7);
   transition: background-color 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo);
   &:hover { background-color: var(--zellige-deep); }
-  &:active { transform: translateY(2px); box-shadow: 0 0 0 var(--zellige-deep), 0 3px 8px -4px oklch(0.25 0.06 175 / 0.7); }
+  &:active { transform: translateY(1px); box-shadow: 0 3px 8px -4px oklch(0.25 0.06 175 / 0.7); }
 }
 @utility btn-lux-outline {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;

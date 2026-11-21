@@ -11,6 +11,10 @@ import kenzieMarshmallow from "@/assets/products/kenzie-marshmallow-dream.webp";
 import kenzieVanilla from "@/assets/products/kenzie-vanilla-70.webp";
 import kenziePistachio from "@/assets/products/kenzie-classic-pistachio.webp";
 import kenzieLychee from "@/assets/products/kenzie-amber-lychee.webp";
+import kenzieApple from "@/assets/products/kenzie-exotic-apple-crush.webp";
+import kenzieMystique from "@/assets/products/kenzie-mystique-fleur.webp";
+import kenzieSilk from "@/assets/products/kenzie-silk-serenity.webp";
+import kenzieOud from "@/assets/products/kenzie-oud-blend.webp";
 import impRituel from "@/assets/products/imphair-rituel-coreen.webp";
 import impGlossy from "@/assets/products/imphair-glossy.webp";
 import impHydratant from "@/assets/products/imphair-hydratant.webp";
@@ -64,7 +68,7 @@ export interface Product {
 export const categories: Category[] = [
   { slug: "lattafa", name: "Lattafa", tagline: "Yara, Asad, Confidential", image: yaraVieuxRose },
   { slug: "mood", name: "Oud Mood & Musk Mood", tagline: "Oud Mood, Réminiscence, Musk Mood", image: oudMoodReminiscence },
-  { slug: "kenzie", name: "Kenzie par Volaré", tagline: "Quatre eaux de parfum", image: kenzieVanilla },
+  { slug: "kenzie", name: "Kenzie par Volaré", tagline: "Huit eaux de parfum", image: kenzieVanilla },
   { slug: "imphair", name: "IMP'hair Professionnel", tagline: "Trois gammes de soins capillaires", image: impRituel },
 ];
 
@@ -97,6 +101,10 @@ export const products: Product[] = [
   parfum({ slug: "kenzie-vanilla-70", name: "Vanilla 70", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieVanilla, alt: "Flacon ambré Kenzie Vanilla 70 avec gousses de vanille, caramel et fleurs de vanillier" }),
   parfum({ slug: "kenzie-classic-pistachio", name: "Classic Pistachio", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenziePistachio, alt: "Flacon vert doré Kenzie Classic Pistachio avec pistaches et gâteau à la pistache", isNew: true }),
   parfum({ slug: "kenzie-amber-lychee", name: "Amber Lychee", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieLychee, alt: "Flacon orangé Kenzie Amber Lychee avec litchis, fleurs blanches et ambre" }),
+  parfum({ slug: "kenzie-oud-blend", name: "Oud Blend", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieOud, alt: "Flacon brun foncé Kenzie Oud Blend avec poire, safran, noisettes, rose rouge et bois d'oud" }),
+  parfum({ slug: "kenzie-exotic-apple-crush", name: "Exotic Apple Crush", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieApple, alt: "Flacon rouge Kenzie Exotic Apple Crush avec pomme, mangue, fruit de la passion et hibiscus" }),
+  parfum({ slug: "kenzie-mystique-fleur", name: "Mystique Fleur", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieMystique, alt: "Flacon rouge et violet Kenzie Mystique Fleur avec roses, prune et groseilles" }),
+  parfum({ slug: "kenzie-silk-serenity", name: "Silk Serenity", brand: "Kenzie par Volaré", category: "kenzie", description: "Eau de parfum de la gamme Kenzie, par Volaré.", image: kenzieSilk, alt: "Flacon pêche étoilé Kenzie Silk Serenity avec poire, rose pâle, fleurs blanches et vanille" }),
   {
     slug: "imphair-rituel-coreen", name: "Rituel coréen", brand: "IMP'hair Professionnel", category: "imphair", kind: "soin-cheveux", notes: none,
     description: "Gamme peptides et céramides : shampoing, sérum et masque.",

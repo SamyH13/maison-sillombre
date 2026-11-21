@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import { categories, displayName, getProduct, products, type Product } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
+import { Rail } from "@/components/site/Rail";
 import { siteConfig, whatsappLink } from "@/config/site";
 
 const DESCRIPTION = "Parfums d'Orient (Lattafa, Oud Mood, Kenzie par Volaré) et soins capillaires IMP'hair, vendus sur les marchés par Maison Sillombre.";
@@ -25,13 +26,16 @@ const wall = ["yara-vieux-rose", "oud-mood-reminiscence", "asad-elixir"]
   .map((s) => getProduct(s))
   .filter((p): p is Product => Boolean(p));
 
+/** Colonnes explicites : le seuil partagé occupe la 2e rangée sans décaler les niches. */
+const wallCols = ["md:col-start-1", "md:col-start-2", "md:col-start-3", "md:col-start-4"];
+
 function Index() {
   const parfums = products.filter((p) => p.kind === "parfum");
   return (
     <>
       <section className="relative -mt-16 md:-mt-20 pt-16 md:pt-20 overflow-hidden" aria-labelledby="titre-accueil">
         <div className="container-lux grid md:grid-cols-12 items-end gap-10 md:gap-8 pt-8 md:pt-14">
-          <div className="md:col-span-5 lg:col-span-5 md:pb-16 animate-rise">
+          <div className="md:col-span-5 md:pb-16 animate-rise">
             <h1 id="titre-accueil" className="text-[2.75rem] leading-[1] sm:text-6xl lg:text-[4.75rem] lg:leading-[0.98] tracking-[-0.02em]">
               Les parfums d'Orient de notre stand
             </h1>
@@ -44,12 +48,12 @@ function Index() {
             </div>
           </div>
           <div className="md:col-span-7 lg:-mr-6">
-            <div className="grid grid-cols-[1fr_1.35fr_1fr] items-end gap-3 sm:gap-4 lg:gap-5">
+            <div className="grid grid-cols-[0.85fr_1.4fr_0.85fr] items-end gap-2 sm:gap-4 lg:gap-5">
               {wall.map((p, i) => (
                 <Link key={p.slug} to="/produit/$slug" params={{ slug: p.slug }} className="group block" aria-label={`Voir ${displayName(p)}`}>
                   <div className={`niche animate-niche-light ${i === 1 ? "" : "mb-[8%]"}`} style={{ animationDelay: `${200 + i * 180}ms` }}>
                     <img src={p.image} alt={p.alt} width={900} height={1200} fetchPriority={i === 1 ? "high" : undefined}
-                      className="size-full object-cover img-zoom group-hover:scale-[1.04]" />
+                      className="object-cover" />
                   </div>
                 </Link>
               ))}
@@ -64,19 +68,22 @@ function Index() {
         <div className="container-lux pt-14 md:pt-20">
           <div className="max-w-2xl">
             <h2 id="titre-collections" className="text-4xl md:text-6xl">Quatre collections</h2>
-            <p className="mt-4 text-lg text-ink">Trois maisons de parfums et une gamme de soins pour les cheveux.</p>
+            <p className="mt-4 text-lg text-ink">Trois gammes de parfums et une gamme de soins pour les cheveux.</p>
           </div>
-          <ul className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-8">
-            {categories.map((c) => (
-              <li key={c.slug}>
-                <Link to="/catalogue" search={{ cat: c.slug }} className="group block">
-                  <div className="niche"><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="size-full object-cover img-zoom group-hover:scale-[1.04]" /></div>
-                  <h3 className="mt-4 text-2xl md:text-3xl group-hover:text-zellige-deep transition-colors">{c.name}</h3>
-                  <p className="mt-1 text-ink">{c.tagline}</p>
-                </Link>
-              </li>
+          {/* Un mur de niches de tailles variées, toutes posées sur le même seuil (sur ordinateur). */}
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-[1fr_1.3fr_1.15fr_0.9fr] md:grid-rows-[auto_auto_auto] gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-0">
+            {categories.map((c, i) => (
+              <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group flex flex-col ${wallCols[i]} md:row-start-1 md:row-span-3 md:grid md:grid-rows-subgrid`}>
+                <div className="niche md:self-end"><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" /></div>
+                <div className="niche-sill md:invisible" aria-hidden="true" />
+                <span className="mt-4 block">
+                  <h3 className="text-2xl md:text-3xl group-hover:text-zellige-deep transition-colors">{c.name}</h3>
+                  <span className="mt-1 block text-ink">{c.tagline}</span>
+                </span>
+              </Link>
             ))}
-          </ul>
+            <div className="niche-sill hidden md:block md:col-span-4 md:row-start-2 md:col-start-1" aria-hidden="true" />
+          </div>
         </div>
       </section>
 
@@ -85,10 +92,12 @@ function Index() {
           <h2 id="titre-parfums" className="text-4xl md:text-6xl">Tous nos parfums</h2>
           <Link to="/catalogue" search={{}} className="link-lux py-2">Voir le catalogue complet</Link>
         </div>
-        <div className="mt-10 -mx-4 px-4 md:mx-0 md:px-0 flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar" tabIndex={0} aria-label="Parfums, faire défiler horizontalement">
-          {parfums.map((p) => (
-            <div key={p.slug} className="w-[62%] sm:w-[38%] md:w-[26%] lg:w-[21%] shrink-0 snap-start"><ProductCard product={p} /></div>
-          ))}
+        <div className="mt-8">
+          <Rail label={`${parfums.length} parfums, faire défiler horizontalement`}>
+            {parfums.map((p) => (
+              <div key={p.slug} className="w-[62%] sm:w-[38%] md:w-[26%] lg:w-[21%] shrink-0 snap-start"><ProductCard product={p} /></div>
+            ))}
+          </Rail>
         </div>
       </section>
 
@@ -105,7 +114,7 @@ function Markets() {
       <div className="grid md:grid-cols-12 gap-10 items-center">
         <div className="md:col-span-5 order-2 md:order-1">
           <div className="niche max-w-sm mx-auto md:mx-0">
-            <img src={getProduct("musk-mood")?.image} alt="" loading="lazy" width={900} height={1200} className="size-full object-cover" />
+            <img src={getProduct("musk-mood")?.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" />
           </div>
         </div>
         <div className="md:col-span-7 order-1 md:order-2">

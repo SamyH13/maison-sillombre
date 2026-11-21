@@ -48,7 +48,7 @@ function ProductPage() {
       <section className="container-lux mt-6 grid md:grid-cols-12 gap-10 md:gap-14">
         <div className="md:col-span-6 lg:col-span-5 md:sticky md:top-24 self-start">
           <div className="niche animate-niche-light max-w-md mx-auto md:max-w-none">
-            <img src={product.image} alt={product.alt} width={900} height={1200} fetchPriority="high" className="size-full object-cover" />
+            <img src={product.image} alt={product.alt} width={900} height={1200} fetchPriority="high" className="object-cover" />
           </div>
         </div>
         <div className="md:col-span-6 lg:col-span-6 lg:col-start-7 md:pt-6">
