@@ -31,8 +31,10 @@ export const Route = createFileRoute("/produit/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.product;
-    const t = p ? `${p.name} — Maison Sillombre` : "Produit — Maison Sillombre";
-    const d = p?.description ?? "Fiche produit Maison Sillombre.";
+    const t = p ? (p.seo?.title ?? `${p.name} — Maison Sillombre`) : "Produit — Maison Sillombre";
+    const d = p
+      ? (p.seo?.description ?? p.tagline ?? p.description)
+      : "Fiche produit Maison Sillombre.";
     return {
       meta: [
         { title: t },
@@ -77,8 +79,9 @@ function productJsonLd(p: Product) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
-    description: p.description,
+    description: p.tagline ? `${p.tagline} ${p.description}` : p.description,
     image: [p.image, ...(p.gallery ?? [])],
+    ...(p.sku && { sku: p.sku }),
     category: getCategory(p.category)?.name,
     ...(p.brand && { brand: { "@type": "Brand", name: p.brand } }),
     ...(offers.length && { offers }),
@@ -154,15 +157,33 @@ function ProductView({ product }: { product: Product }) {
 
         <div className="md:py-10 animate-rise">
           <p className="eyebrow text-muted-foreground">
-            {[product.brand, product.concentration, product.family].filter(Boolean).join(" · ")}
+            {[product.brand, product.concentration ?? product.collection]
+              .filter(Boolean)
+              .join(" · ")}
           </p>
           <h1 className="mt-3 text-5xl md:text-6xl leading-[1]">{product.name}</h1>
+          {product.range && (
+            <p className="mt-4 inline-flex items-center gap-2.5 text-sm">
+              <span
+                className="size-3.5 rounded-full ring-1 ring-border"
+                style={{ background: product.range.swatch }}
+                aria-hidden
+              />
+              Gamme {product.range.color} · {product.range.items.length} soins vendus ensemble
+            </p>
+          )}
           <p className="mt-5 text-xl" aria-live="polite">
             {formatPrice(variant?.priceCents ?? null)}
           </p>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
+          {product.tagline && (
+            <p className="mt-6 font-serif text-2xl italic leading-snug max-w-md">
+              {product.tagline}
+            </p>
+          )}
+          <p className="mt-4 text-muted-foreground leading-relaxed max-w-md">
             {product.description}
           </p>
+          <p className="mt-4 eyebrow text-muted-foreground">{product.family}</p>
 
           {product.variants.length > 0 && (
             <fieldset className="mt-10">
@@ -254,7 +275,7 @@ function ProductView({ product }: { product: Product }) {
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 text-sm link-lux"
             >
-              <MessageCircle className="size-4" strokeWidth={1.25} /> Une question sur ce parfum ?
+              <MessageCircle className="size-4" strokeWidth={1.25} /> Une question sur ce produit ?
               Écrivez-nous
             </a>
           )}
@@ -280,7 +301,7 @@ function ProductView({ product }: { product: Product }) {
 
           <Accordion
             type="multiple"
-            defaultValue={["notes"]}
+            defaultValue={["notes", "benefits", "contents"]}
             className="mt-12 border-t border-border"
           >
             {hasNotes && (
@@ -300,6 +321,22 @@ function ProductView({ product }: { product: Product }) {
                   ))}
               </Section>
             )}
+            {product.contents && (
+              <Section value="contents" title="Contenu du coffret">
+                <p className="text-sm text-muted-foreground leading-relaxed">{product.contents}</p>
+              </Section>
+            )}
+            {!!product.benefits?.length && (
+              <Section value="benefits" title="Bénéfices">
+                <ul className="flex flex-wrap gap-2">
+                  {product.benefits.map((b) => (
+                    <li key={b} className="border border-border px-3 py-1 text-xs">
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            )}
             {product.ingredients && (
               <Section value="ingredients" title="Composition">
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -316,6 +353,8 @@ function ProductView({ product }: { product: Product }) {
         </div>
       </section>
 
+      {product.range && <RangeSection range={product.range} />}
+
       <section className="container-lux mt-24">
         <h2 className="text-3xl md:text-4xl mb-8">Vous aimerez aussi</h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6">
@@ -325,6 +364,64 @@ function ProductView({ product }: { product: Product }) {
         </div>
       </section>
     </>
+  );
+}
+
+function RangeSection({ range }: { range: NonNullable<Product["range"]> }) {
+  return (
+    <section className="container-lux mt-24 md:mt-32" aria-labelledby="trio-titre">
+      <div className="flex items-end justify-between gap-6 border-b border-border pb-6">
+        <div>
+          <p className="eyebrow text-muted-foreground">Le rituel en {range.items.length} gestes</p>
+          <h2 id="trio-titre" className="mt-3 text-4xl md:text-5xl">
+            Dans le trio
+          </h2>
+        </div>
+        <span
+          className="hidden md:block h-1 w-24"
+          style={{ background: range.swatch }}
+          aria-hidden
+        />
+      </div>
+      <ol className="grid md:grid-cols-3 gap-10 md:gap-8 mt-10">
+        {range.items.map((item, i) => (
+          <li key={item.sku} className="flex flex-col">
+            <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+              <img
+                src={item.image}
+                alt={item.name}
+                loading="lazy"
+                width={900}
+                height={1200}
+                className="size-full object-cover"
+              />
+              <span className="absolute left-3 top-3 grid size-9 place-items-center rounded-full bg-background/90 font-serif text-lg">
+                {i + 1}
+              </span>
+            </div>
+            <p className="mt-5 eyebrow text-muted-foreground">
+              {item.type} · {item.volume}
+            </p>
+            <h3 className="mt-2 font-serif text-2xl leading-tight">{item.name}</h3>
+            <p className="mt-3 font-serif italic text-lg leading-snug">{item.tagline}</p>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+            {item.benefits.length > 0 && (
+              <ul className="mt-4 flex flex-wrap gap-1.5">
+                {item.benefits.map((b) => (
+                  <li key={b} className="border border-border px-2.5 py-0.5 text-[0.7rem]">
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-5 border-t border-border pt-4 text-sm leading-relaxed">
+              <span className="eyebrow text-muted-foreground block mb-1.5">Utilisation</span>
+              {item.usage}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
 
@@ -344,7 +441,10 @@ function Gallery({ product }: { product: Product }) {
         <img
           key={index}
           src={images[index]}
-          alt={index === 0 ? product.name : `${product.name}, vue ${index + 1}`}
+          alt={
+            product.range?.items[index]?.name ??
+            (index === 0 ? product.name : `${product.name}, vue ${index + 1}`)
+          }
           width={768}
           height={1024}
           className={`size-full object-cover ${index === 0 ? "animate-slowzoom" : "animate-fade"}`}

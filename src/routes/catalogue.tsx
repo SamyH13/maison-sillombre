@@ -1,15 +1,16 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Search } from "lucide-react";
-import { categories, filterProducts, products, sortKeys, type CategorySlug, type SortKey } from "@/data/catalog";
+import { brands, categories, filterProducts, products, sortKeys, type CategorySlug, type SortKey } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PageHero } from "@/components/site/PageHero";
 
-type S = { cat?: CategorySlug; q?: string; sort?: SortKey };
+type S = { cat?: CategorySlug; marque?: string; q?: string; sort?: SortKey };
 
 export const Route = createFileRoute("/catalogue")({
   validateSearch: (s: Record<string, unknown>): S => {
     const out: S = {};
     if (typeof s["cat"] === "string" && categories.some((c) => c.slug === s["cat"])) out.cat = s["cat"] as CategorySlug;
+    if (typeof s["marque"] === "string" && brands.includes(s["marque"])) out.marque = s["marque"];
     if (typeof s["q"] === "string" && s["q"]) out.q = s["q"];
     if (typeof s["sort"] === "string" && s["sort"] !== "pertinence" && sortKeys.includes(s["sort"] as SortKey)) out.sort = s["sort"] as SortKey;
     return out;
@@ -17,9 +18,9 @@ export const Route = createFileRoute("/catalogue")({
   head: () => ({
     meta: [
       { title: "Catalogue — Maison Sillombre" },
-      { name: "description", content: "Parfums femme, homme, unisexe, orientaux et soins de Maison Sillombre." },
+      { name: "description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Maison Sillombre." },
       { property: "og:title", content: "Catalogue — Maison Sillombre" },
-      { property: "og:description", content: "Parfums femme, homme, unisexe, orientaux et soins de Maison Sillombre." },
+      { property: "og:description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Maison Sillombre." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -39,8 +40,10 @@ function Catalogue() {
   const current = categories.find((c) => c.slug === search.cat);
   return (
     <>
-      <PageHero eyebrow="Catalogue" title={current?.name ?? "Toutes les fragrances"}>
-        {products.some((p) => p.isExample) ? "Certaines fiches sont encore des exemples de présentation ; le catalogue réel arrive prochainement." : "Parfums, essences orientales et soins, sélectionnés un à un."}
+      <PageHero eyebrow="Catalogue" title={search.marque ?? current?.name ?? "Tout le catalogue"}>
+        {current?.slug === "soins-capillaires"
+          ? "Chaque gamme IMP’HAIR se compose d’un shampoing, d’un masque et d’un sérum, vendus ensemble."
+          : "Parfums, coffrets et soins capillaires de la maison."}
       </PageHero>
       <div className="container-lux">
         <div className="sticky top-16 md:top-20 z-30 -mx-5 px-5 md:mx-0 md:px-0 bg-background/95 backdrop-blur py-4 border-b border-border">
@@ -59,6 +62,12 @@ function Catalogue() {
               <option value="prix-asc">Prix croissant</option><option value="prix-desc">Prix décroissant</option>
             </select>
           </div>
+          <div className="mt-3 flex items-center gap-2 overflow-x-auto no-scrollbar" role="group" aria-label="Marques">
+            <span className="eyebrow text-muted-foreground shrink-0 mr-1">Marque</span>
+            {brands.map((b) => (
+              <Chip key={b} small active={search.marque === b} onClick={() => set({ marque: search.marque === b ? undefined : b })}>{b}</Chip>
+            ))}
+          </div>
         </div>
         <p className="mt-6 text-xs text-muted-foreground" aria-live="polite">{list.length} produit{list.length > 1 ? "s" : ""}</p>
         {list.length ? (
@@ -71,6 +80,6 @@ function Catalogue() {
   );
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
-  return <button onClick={onClick} aria-pressed={active} className={`shrink-0 border px-4 py-2 text-xs tracking-wide transition-colors ${active ? "bg-ink text-ink-foreground border-ink" : "border-border hover:border-foreground"}`}>{children}</button>;
+function Chip({ active, onClick, children, small }: { active: boolean; onClick: () => void; children: React.ReactNode; small?: boolean }) {
+  return <button type="button" onClick={onClick} aria-pressed={active} className={`shrink-0 border ${small ? "px-3 py-1.5" : "px-4 py-2"} text-xs tracking-wide transition-colors ${active ? "bg-ink text-ink-foreground border-ink" : "border-border hover:border-foreground"}`}>{children}</button>;
 }

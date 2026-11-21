@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import hero from "@/assets/hero-flacon.jpg";
-import { categories, products } from "@/data/catalog";
+import { categories, products, type CategorySlug } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { ExampleTag } from "@/components/site/ExampleTag";
 
@@ -9,9 +9,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Maison Sillombre — Parfumerie confidentielle" },
-      { name: "description", content: "Parfums femme, homme, orientaux et soins, sélectionnés par une maison indépendante." },
+      { name: "description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR, sélectionnés par une maison indépendante." },
       { property: "og:title", content: "Maison Sillombre — Parfumerie confidentielle" },
-      { property: "og:description", content: "Parfums femme, homme, orientaux et soins, sélectionnés par une maison indépendante." },
+      { property: "og:description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR, sélectionnés par une maison indépendante." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -20,8 +20,13 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const nouveautes = products.filter((p) => p.isNew);
-  const coups = products.filter((p) => p.isFavorite);
+  const trios = products.filter((p) => p.range);
+  // Un parfum par collection (Khamrah, Yara, Kenzie…) pour montrer l'étendue de la sélection.
+  const parfums = products
+    .filter((p) => p.category === "parfums")
+    .filter((p, i, all) => all.findIndex((o) => o.brand === p.brand && o.collection === p.collection) === i)
+    .slice(0, 8);
+  const orient = products.find((p) => p.slug === "lattafa-oud-mood-100ml");
   return (
     <>
       <section className="relative -mt-16 md:-mt-20 h-[100svh] min-h-[560px] overflow-hidden bg-ink text-ink-foreground">
@@ -33,7 +38,7 @@ function Index() {
             L'ombre <em className="text-champagne">d'un</em> sillage.
           </h1>
           <p className="mt-6 max-w-md text-ink-foreground/75 leading-relaxed animate-rise [animation-delay:300ms]">
-            Parfums, essences orientales et soins, choisis un à un pour celles et ceux qui préfèrent la confidence à l'évidence.
+            Parfums, coffrets et soins capillaires, choisis un à un pour celles et ceux qui préfèrent la confidence à l'évidence.
           </p>
           <div className="mt-9 flex flex-wrap gap-3 animate-rise [animation-delay:450ms]">
             <Link to="/catalogue" search={{}} className="btn-lux-outline">Découvrir le catalogue <ArrowRight className="size-4" strokeWidth={1.25} /></Link>
@@ -52,9 +57,9 @@ function Index() {
 
       <section className="container-lux">
         <div className="flex items-end justify-between mb-10">
-          <div><p className="eyebrow text-muted-foreground">Univers</p><h2 className="mt-3 text-4xl md:text-5xl">Explorer par famille</h2></div>
+          <div><p className="eyebrow text-muted-foreground">Univers</p><h2 className="mt-3 text-4xl md:text-5xl">Explorer par univers</h2></div>
         </div>
-        <div className="-mx-5 px-5 md:mx-0 md:px-0 flex md:grid md:grid-cols-5 gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
+        <div className="-mx-5 px-5 md:mx-0 md:px-0 flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-2">
           {categories.map((c, i) => (
             <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group relative shrink-0 w-[72%] sm:w-[45%] md:w-auto snap-start overflow-hidden ${i % 2 ? "md:mt-12" : ""}`}>
               <div className="aspect-[3/4] overflow-hidden bg-muted"><img src={c.image} alt="" loading="lazy" width={768} height={1024} className="size-full object-cover img-zoom group-hover:scale-105" /></div>
@@ -67,21 +72,21 @@ function Index() {
         </div>
       </section>
 
-      <Showcase title="Nouveautés" eyebrow="Fraîchement arrivés" list={nouveautes} />
+      <Showcase title="Rituels capillaires" eyebrow="IMP’HAIR Professionnel · en trio" list={trios} cat="soins-capillaires" cols={3} />
 
       <section className="mt-24 md:mt-36 bg-ink text-ink-foreground">
         <div className="container-lux grid md:grid-cols-2 items-center gap-12 py-20 md:py-0">
           <div className="md:py-28">
             <p className="eyebrow text-champagne">Essences d'Orient</p>
             <h2 className="mt-4 text-5xl md:text-6xl leading-[1.02]">Oud, ambre <br /><em>&amp; safran.</em></h2>
-            <p className="mt-6 max-w-md text-ink-foreground/70 leading-relaxed">Une part de la maison est dédiée aux compositions orientales : profondes, chaudes, tenaces.</p>
-            <Link to="/catalogue" search={{ cat: "orientaux" }} className="mt-9 btn-lux-outline">Voir les orientaux</Link>
+            <p className="mt-6 max-w-md text-ink-foreground/70 leading-relaxed">Une part de la maison est dédiée aux compositions orientales : profondes, chaudes, enveloppantes.</p>
+            <Link to="/catalogue" search={{ q: "oriental" }} className="mt-9 btn-lux-outline">Voir les parfums orientaux</Link>
           </div>
-          <img src={categories[2]?.image} alt="Flacon oriental en laiton, bois d'oud, ambre et safran" loading="lazy" width={768} height={1024} className="w-full aspect-[4/5] object-cover" />
+          <img src={orient?.image} alt={orient ? `${orient.brand} ${orient.name}` : ""} loading="lazy" width={768} height={1024} className="w-full aspect-[4/5] object-cover" />
         </div>
       </section>
 
-      <Showcase title="Coups de cœur" eyebrow="Sélection de la maison" list={coups} />
+      <Showcase title="Parfums" eyebrow="Lattafa · Volaré · Loui Martin" list={parfums} cat="parfums" />
 
       <section className="container-lux mt-24 md:mt-32">
         <div className="border border-dashed border-champagne p-8 md:p-12 text-center">
@@ -94,15 +99,15 @@ function Index() {
   );
 }
 
-function Showcase({ title, eyebrow, list }: { title: string; eyebrow: string; list: typeof products }) {
+function Showcase({ title, eyebrow, list, cat, cols = 4 }: { title: string; eyebrow: string; list: typeof products; cat: CategorySlug; cols?: 3 | 4 }) {
   return (
     <section className="container-lux mt-24 md:mt-36">
       <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
         <div><p className="eyebrow text-muted-foreground">{eyebrow}</p><h2 className="mt-3 text-4xl md:text-5xl">{title}</h2></div>
-        <Link to="/catalogue" search={{}} className="eyebrow link-lux">Tout voir</Link>
+        <Link to="/catalogue" search={{ cat }} className="eyebrow link-lux">Tout voir</Link>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6">
-        {list.slice(0, 4).map((p) => <ProductCard key={p.slug} product={p} />)}
+      <div className={`grid grid-cols-2 ${cols === 3 ? "md:grid-cols-3" : "lg:grid-cols-4"} gap-x-4 gap-y-10 md:gap-x-6`}>
+        {list.map((p) => <ProductCard key={p.slug} product={p} />)}
       </div>
     </section>
   );

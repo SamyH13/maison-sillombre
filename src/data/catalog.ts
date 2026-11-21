@@ -1,14 +1,12 @@
-import femme from "@/assets/cat-femme.jpg";
-import homme from "@/assets/cat-homme.jpg";
-import orient from "@/assets/cat-orient.jpg";
-import soins from "@/assets/cat-soins.jpg";
+import { products } from "./products";
+
+export { products };
 
 /**
- * Catalogue de démonstration (Phase 1). Toutes les fiches sont marquées
- * isExample : aucun nom, prix ni stock réel. À remplacer par la base de
- * données en Phase 2 sans changer la forme des types.
+ * Modèle du catalogue. Les données réelles sont dans ./products.ts ; les types
+ * restent stables pour être branchés plus tard sur une base de données.
  */
-export type CategorySlug = "femme" | "homme" | "unisexe" | "orientaux" | "soins";
+export type CategorySlug = "parfums" | "coffrets" | "soins-capillaires";
 
 export interface Category {
   slug: CategorySlug;
@@ -19,28 +17,51 @@ export interface Category {
 
 export interface Variant {
   id: string;
-  label: string; // ex. "50 ml"
+  label: string; // ex. "100 ml"
   priceCents: number | null;
   stock: number | null; // null = non renseigné
 }
 
 export type Intensity = 1 | 2 | 3 | 4 | 5;
 
+/** Un soin qui fait partie d'une gamme vendue en lot (ex. shampoing du trio bleu). */
+export interface RangeItem {
+  sku: string;
+  type: string; // "Shampoing", "Masque", "Sérum"
+  name: string;
+  volume: string;
+  tagline: string;
+  description: string;
+  benefits: string[];
+  usage: string;
+  image: string;
+}
+
 export interface Product {
   slug: string;
+  sku?: string;
   name: string;
-  /** Marque ou créateur, si différent de la maison. */
+  /** Marque ou créateur. */
   brand?: string;
-  /** Ex. "Eau de parfum", "Extrait", "Huile parfumée". */
+  /** Ex. "Eau de Parfum", "Extrait de Parfum". */
   concentration?: string;
   category: CategorySlug;
-  family: string; // famille olfactive
+  /** Ligne de la marque, ex. "Khamrah", "Kenzie". */
+  collection?: string;
+  family: string; // accords principaux / actifs
   notes: { top: string[]; heart: string[]; base: string[] };
+  /** Accroche courte. */
+  tagline?: string;
   description: string;
-  /** Image principale. */
+  /** Image principale (chemin public). */
   image: string;
-  /** Photos supplémentaires (flacon, packaging, texture…). */
+  /** Photos supplémentaires. */
   gallery?: string[];
+  benefits?: string[];
+  /** Contenu d'un coffret. */
+  contents?: string;
+  /** Lot vendu uniquement ensemble : couleur de la gamme et soins inclus. */
+  range?: { color: string; swatch: string; items: RangeItem[] };
   /** Tenue et sillage notés de 1 à 5 — affichés seulement si renseignés. */
   longevity?: Intensity;
   sillage?: Intensity;
@@ -48,6 +69,7 @@ export interface Product {
   occasions?: string[];
   ingredients?: string;
   usage?: string;
+  seo?: { title: string; description: string };
   variants: Variant[];
   /** true = fiche de démonstration, signalée comme telle dans l'interface. */
   isExample: boolean;
@@ -55,60 +77,33 @@ export interface Product {
   isFavorite?: boolean;
 }
 
+const firstImage = (cat: CategorySlug, slug?: string) =>
+  (slug ? products.find((p) => p.slug === slug) : products.find((p) => p.category === cat))?.image ?? "";
+
 export const categories: Category[] = [
-  { slug: "femme", name: "Parfums femme", tagline: "Fleurs blanches, poudres, lumière", image: femme },
-  { slug: "homme", name: "Parfums homme", tagline: "Bois, cuirs, épices", image: homme },
-  { slug: "orientaux", name: "Parfums orientaux", tagline: "Oud, ambre, safran", image: orient },
-  { slug: "unisexe", name: "Unisexe", tagline: "Sillages sans frontière", image: femme },
-  { slug: "soins", name: "Soins & cosmétiques", tagline: "Rituels de peau", image: soins },
+  { slug: "parfums", name: "Parfums", tagline: "Lattafa, Volaré, Loui Martin", image: firstImage("parfums", "lattafa-oud-mood-100ml") },
+  { slug: "soins-capillaires", name: "Soins capillaires", tagline: "Trois rituels IMP’HAIR, en trio", image: firstImage("soins-capillaires", "imphair-trio-effet-glossy-restructurant") },
+  { slug: "coffrets", name: "Coffrets", tagline: "Parfum, brume et gel douche", image: firstImage("coffrets") },
 ];
 
-const v = (id: string, labels: string[]): Variant[] =>
-  labels.map((label, i) => ({ id: `${id}-${i}`, label, priceCents: null, stock: null }));
-
-export const products: Product[] = [
-  {
-    slug: "exemple-fleur-blanche", name: "Exemple — Fleur blanche", category: "femme", family: "Floral",
-    notes: { top: ["Exemple"], heart: ["Exemple"], base: ["Exemple"] },
-    description: "Fiche de démonstration. Description, notes et contenances seront renseignées à partir du catalogue réel.",
-    image: femme, variants: v("ffb", ["30 ml", "50 ml", "100 ml"]), isExample: true, isNew: true,
-  },
-  {
-    slug: "exemple-bois-fume", name: "Exemple — Bois fumé", category: "homme", family: "Boisé",
-    notes: { top: ["Exemple"], heart: ["Exemple"], base: ["Exemple"] },
-    description: "Fiche de démonstration à remplacer par un produit réel.",
-    image: homme, variants: v("hbf", ["50 ml", "100 ml"]), isExample: true, isFavorite: true,
-  },
-  {
-    slug: "exemple-ambre-oud", name: "Exemple — Ambre & oud", category: "orientaux", family: "Oriental",
-    notes: { top: ["Exemple"], heart: ["Exemple"], base: ["Exemple"] },
-    description: "Fiche de démonstration à remplacer par un produit réel.",
-    image: orient, variants: v("oao", ["12 ml", "50 ml"]), isExample: true, isNew: true, isFavorite: true,
-  },
-  {
-    slug: "exemple-soin-visage", name: "Exemple — Soin visage", category: "soins", family: "Soin",
-    notes: { top: [], heart: [], base: [] },
-    description: "Fiche de démonstration à remplacer par un produit réel.",
-    image: soins, variants: v("ssv", ["30 ml"]), isExample: true, isNew: true,
-  },
-  {
-    slug: "exemple-sillage-partage", name: "Exemple — Sillage partagé", category: "unisexe", family: "Hespéridé",
-    notes: { top: ["Exemple"], heart: ["Exemple"], base: ["Exemple"] },
-    description: "Fiche de démonstration à remplacer par un produit réel.",
-    image: femme, variants: v("usp", ["50 ml", "100 ml"]), isExample: true, isFavorite: true,
-  },
-];
+/** Marques présentes au catalogue, dans l'ordre alphabétique. */
+export const brands: string[] = [...new Set(products.map((p) => p.brand).filter((b): b is string => !!b))].sort((a, b) =>
+  a.localeCompare(b, "fr"),
+);
 
 const searchText = (p: Product) =>
-  [p.name, p.brand, p.concentration, p.family, p.description, ...p.notes.top, ...p.notes.heart, ...p.notes.base]
+  [p.name, p.brand, p.collection, p.concentration, p.family, p.tagline, p.description, p.range?.color, ...p.notes.top, ...p.notes.heart, ...p.notes.base]
     .filter(Boolean).join(" ").toLowerCase();
 
 export type SortKey = "pertinence" | "nom" | "prix-asc" | "prix-desc";
 export const sortKeys: SortKey[] = ["pertinence", "nom", "prix-asc", "prix-desc"];
 
-export function filterProducts(list: Product[], opts: { q?: string; cat?: CategorySlug; sort?: SortKey }): Product[] {
+export function filterProducts(
+  list: Product[],
+  opts: { q?: string; cat?: CategorySlug; marque?: string; sort?: SortKey },
+): Product[] {
   const q = opts.q?.trim().toLowerCase();
-  let out = list.filter((p) => (!opts.cat || p.category === opts.cat) &&
+  let out = list.filter((p) => (!opts.cat || p.category === opts.cat) && (!opts.marque || p.brand === opts.marque) &&
     (!q || searchText(p).includes(q)));
   if (opts.sort === "nom") out = [...out].sort((a, b) => a.name.localeCompare(b.name, "fr"));
   if (opts.sort === "prix-asc" || opts.sort === "prix-desc") {

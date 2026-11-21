@@ -20,8 +20,8 @@ export function SiteHeader() {
         <div className="flex items-center gap-6">
           <button className="md:hidden -ml-2 p-2" aria-label="Ouvrir le menu" aria-expanded={open} onClick={() => setOpen(true)}><Menu className="size-5" strokeWidth={1.25} /></button>
           <nav className="hidden md:flex gap-7 eyebrow" aria-label="Navigation principale">
-            <Link to="/catalogue" search={{}} className="link-lux">Catalogue</Link>
-            <Link to="/catalogue" search={{ cat: "orientaux" }} className="link-lux">Orientaux</Link>
+            <Link to="/catalogue" search={{ cat: "parfums" }} className="link-lux">Parfums</Link>
+            <Link to="/catalogue" search={{ cat: "soins-capillaires" }} className="link-lux">Soins capillaires</Link>
             <Link to="/maison" className="link-lux">La Maison</Link>
           </nav>
         </div>

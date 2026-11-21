@@ -18,7 +18,10 @@ export function ProductCard({ product }: { product: Product }) {
             : product.isNew && <span className="absolute left-3 top-3 eyebrow bg-background/85 backdrop-blur px-2 py-1">Nouveau</span>}
         </div>
         <div className="pt-4">
-          <p className="eyebrow text-muted-foreground">{getCategory(product.category)?.name} · {product.family}</p>
+          <p className="eyebrow text-muted-foreground flex items-center gap-2">
+            {product.range && <span className="size-2.5 rounded-full shrink-0" style={{ background: product.range.swatch }} aria-hidden />}
+            <span className="truncate">{product.range ? `Gamme ${product.range.color}` : [product.brand ?? getCategory(product.category)?.name, product.collection].filter(Boolean).join(" · ")}</span>
+          </p>
           <h3 className="mt-1.5 font-serif text-xl md:text-2xl">{product.name}</h3>
           <p className="mt-1 text-sm text-muted-foreground">{priceLabel(product)}</p>
         </div>

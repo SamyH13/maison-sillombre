@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="md:col-span-2 max-w-sm">
           <p className="eyebrow text-champagne">Maison</p>
           <p className="font-serif text-4xl tracking-[0.2em] mt-2">SILLOMBRE</p>
-          <p className="mt-6 text-sm text-ink-foreground/65 leading-relaxed">Parfums, parfums orientaux et soins, choisis par un commerçant indépendant.</p>
+          <p className="mt-6 text-sm text-ink-foreground/65 leading-relaxed">Parfums, coffrets et soins capillaires, choisis par un commerçant indépendant.</p>
         </div>
         <div>
           <p className="eyebrow text-champagne mb-5">Univers</p>

@@ -10,10 +10,29 @@ describe("catalogue", () => {
     expect(formatPrice(4950)).toBe("49,50 €");
   });
   it("filtre par catégorie", () => {
-    expect(filterProducts(products, { cat: "orientaux" }).every((p) => p.category === "orientaux")).toBe(true);
+    const list = filterProducts(products, { cat: "soins-capillaires" });
+    expect(list.length).toBe(3);
+    expect(list.every((p) => p.category === "soins-capillaires")).toBe(true);
   });
-  it("toutes les fiches de démonstration sont marquées comme exemples", () => {
-    expect(products.every((p) => p.isExample && p.variants.every((v) => v.priceCents === null))).toBe(true);
+  it("contient le vrai catalogue : 27 parfums, 1 coffret, 3 trios capillaires", () => {
+    expect(products.filter((p) => p.category === "parfums")).toHaveLength(27);
+    expect(products.filter((p) => p.category === "coffrets")).toHaveLength(1);
+    expect(products.every((p) => !p.isExample)).toBe(true);
+    expect(new Set(products.map((p) => p.slug)).size).toBe(products.length);
+  });
+  it("chaque trio réunit shampoing, masque et sérum d'une même gamme", () => {
+    const trios = products.filter((p) => p.range);
+    expect(trios.map((t) => t.range!.color).sort()).toEqual(["bleue", "rose", "rouge bordeaux"]);
+    for (const t of trios) {
+      expect(t.range!.items.map((i) => i.type)).toEqual(["Shampoing", "Masque", "Sérum"]);
+      expect(t.variants).toHaveLength(1);
+    }
+  });
+  it("n'invente aucun prix ni stock tant qu'ils ne sont pas fournis", () => {
+    expect(products.every((p) => p.variants.every((v) => v.priceCents === null && v.stock === null))).toBe(true);
+  });
+  it("filtre par marque", () => {
+    expect(filterProducts(products, { marque: "Loui Martin" }).map((p) => p.name).sort()).toEqual(["Vanilla Powdery", "Vanilla Powdery Elixir"]);
   });
 });
 
@@ -21,7 +40,7 @@ import { getVariant, isPurchasable, minPrice, relatedProducts, type Product } fr
 import { clampQty, MAX_QTY } from "@/lib/store/cart";
 
 const make = (slug: string, prices: (number | null)[]): Product => ({
-  slug, name: slug, category: "femme", family: "Floral", notes: { top: [], heart: [], base: [] },
+  slug, name: slug, category: "parfums", family: "Floral", notes: { top: [], heart: [], base: [] },
   description: "", image: "", isExample: false,
   variants: prices.map((priceCents, i) => ({ id: `${slug}-${i}`, label: `${i}`, priceCents, stock: null })),
 });
