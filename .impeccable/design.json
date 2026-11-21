@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T00:00:00Z",
+  "title": "Design System: Maison Sillombre",
+  "extensions": {
+    "colorMeta": {
+      "tadelakt": {
+        "role": "neutral",
+        "displayName": "Tadelakt Rose-Ochre",
+        "canonical": "oklch(0.8 0.07 46)",
+        "tonalRamp": [
+          "oklch(0.15 0.034 46)",
+          "oklch(0.27 0.045 46)",
+          "oklch(0.39 0.056 46)",
+          "oklch(0.51 0.066 46)",
+          "oklch(0.63 0.063 46)",
+          "oklch(0.75 0.052 46)",
+          "oklch(0.86 0.042 46)",
+          "oklch(0.95 0.034 46)"
+        ]
+      },
+      "tadelakt-light": {
+        "role": "neutral",
+        "displayName": "Lime Highlight",
+        "canonical": "oklch(0.86 0.05 52)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 52)",
+          "oklch(0.27 0.032 52)",
+          "oklch(0.39 0.040 52)",
+          "oklch(0.51 0.047 52)",
+          "oklch(0.63 0.045 52)",
+          "oklch(0.75 0.037 52)",
+          "oklch(0.86 0.030 52)",
+          "oklch(0.95 0.025 52)"
+        ]
+      },
+      "terracotta": {
+        "role": "neutral",
+        "displayName": "Terracotta Wall",
+        "canonical": "oklch(0.64 0.1 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.049 40)",
+          "oklch(0.27 0.064 40)",
+          "oklch(0.39 0.080 40)",
+          "oklch(0.51 0.095 40)",
+          "oklch(0.63 0.090 40)",
+          "oklch(0.75 0.075 40)",
+          "oklch(0.86 0.061 40)",
+          "oklch(0.95 0.049 40)"
+        ]
+      },
+      "clay-line": {
+        "role": "neutral",
+        "displayName": "Clay Line",
+        "canonical": "oklch(0.6 0.08 48)",
+        "tonalRamp": [
+          "oklch(0.15 0.039 48)",
+          "oklch(0.27 0.051 48)",
+          "oklch(0.39 0.064 48)",
+          "oklch(0.51 0.076 48)",
+          "oklch(0.63 0.072 48)",
+          "oklch(0.75 0.060 48)",
+          "oklch(0.86 0.048 48)",
+          "oklch(0.95 0.039 48)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Riad Ink",
+        "canonical": "oklch(0.22 0.04 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.020 40)",
+          "oklch(0.27 0.026 40)",
+          "oklch(0.39 0.032 40)",
+          "oklch(0.51 0.038 40)",
+          "oklch(0.63 0.036 40)",
+          "oklch(0.75 0.030 40)",
+          "oklch(0.86 0.024 40)",
+          "oklch(0.95 0.020 40)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(0.36 0.06 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.029 40)",
+          "oklch(0.27 0.039 40)",
+          "oklch(0.39 0.048 40)",
+          "oklch(0.51 0.057 40)",
+          "oklch(0.63 0.054 40)",
+          "oklch(0.75 0.045 40)",
+          "oklch(0.86 0.036 40)",
+          "oklch(0.95 0.029 40)"
+        ]
+      },
+      "cedar": {
+        "role": "neutral",
+        "displayName": "Cedar",
+        "canonical": "oklch(0.25 0.04 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.020 40)",
+          "oklch(0.27 0.026 40)",
+          "oklch(0.39 0.032 40)",
+          "oklch(0.51 0.038 40)",
+          "oklch(0.63 0.036 40)",
+          "oklch(0.75 0.030 40)",
+          "oklch(0.86 0.024 40)",
+          "oklch(0.95 0.020 40)"
+        ]
+      },
+      "cedar-foreground": {
+        "role": "neutral",
+        "displayName": "Cedar Light",
+        "canonical": "oklch(0.9 0.04 70)",
+        "tonalRamp": [
+          "oklch(0.15 0.020 70)",
+          "oklch(0.27 0.026 70)",
+          "oklch(0.39 0.032 70)",
+          "oklch(0.51 0.038 70)",
+          "oklch(0.63 0.036 70)",
+          "oklch(0.75 0.030 70)",
+          "oklch(0.86 0.024 70)",
+          "oklch(0.95 0.020 70)"
+        ]
+      },
+      "zellige": {
+        "role": "primary",
+        "displayName": "Zellige Emerald",
+        "canonical": "oklch(0.42 0.08 175)",
+        "tonalRamp": [
+          "oklch(0.15 0.039 175)",
+          "oklch(0.27 0.051 175)",
+          "oklch(0.39 0.064 175)",
+          "oklch(0.51 0.076 175)",
+          "oklch(0.63 0.072 175)",
+          "oklch(0.75 0.060 175)",
+          "oklch(0.86 0.048 175)",
+          "oklch(0.95 0.039 175)"
+        ]
+      },
+      "zellige-deep": {
+        "role": "primary",
+        "displayName": "Deep Glaze",
+        "canonical": "oklch(0.33 0.06 175)",
+        "tonalRamp": [
+          "oklch(0.15 0.029 175)",
+          "oklch(0.27 0.039 175)",
+          "oklch(0.39 0.048 175)",
+          "oklch(0.51 0.057 175)",
+          "oklch(0.63 0.054 175)",
+          "oklch(0.75 0.045 175)",
+          "oklch(0.86 0.036 175)",
+          "oklch(0.95 0.029 175)"
+        ]
+      },
+      "lime-wash": {
+        "role": "neutral",
+        "displayName": "Lime Wash",
+        "canonical": "oklch(0.93 0.035 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.017 75)",
+          "oklch(0.27 0.023 75)",
+          "oklch(0.39 0.028 75)",
+          "oklch(0.51 0.033 75)",
+          "oklch(0.63 0.031 75)",
+          "oklch(0.75 0.026 75)",
+          "oklch(0.86 0.021 75)",
+          "oklch(0.95 0.017 75)"
+        ]
+      },
+      "whatsapp": {
+        "role": "functional",
+        "displayName": "WhatsApp Green",
+        "canonical": "oklch(0.55 0.13 150)",
+        "tonalRamp": [
+          "oklch(0.15 0.064 150)",
+          "oklch(0.27 0.084 150)",
+          "oklch(0.39 0.104 150)",
+          "oklch(0.51 0.123 150)",
+          "oklch(0.63 0.117 150)",
+          "oklch(0.75 0.097 150)",
+          "oklch(0.86 0.079 150)",
+          "oklch(0.95 0.064 150)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero title only; 2.75rem mobile to 4.75rem at lg."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section and page titles; 2.25rem mobile, 3.75rem desktop (page heroes up to 4.5rem)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product, collection and market names; 1.25-1.875rem."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "'Sillombre' in the header, menu and footer, after 'Maison' in Readex Pro 0.8rem."
+      },
+      "body-lead": {
+        "displayName": "Body lead",
+        "purpose": "Hero and section intros."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and running text at max-w-prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Brand line, price, counts, breadcrumbs, footer column heads; sentence case."
+      }
+    },
+    "shadows": [
+      {
+        "name": "intrados",
+        "value": "linear-gradient(to bottom, oklch(0.16 0.03 40 / 0.75), oklch(0.16 0.03 40 / 0.35) 45%, transparent 75%) masked to the arch ring",
+        "purpose": "Inner shadow of every niche arch."
+      },
+      {
+        "name": "niche-reveal",
+        "value": "linear-gradient(to bottom, oklch(0.42 0.07 38), oklch(0.56 0.085 42) 70%, oklch(0.78 0.06 48))",
+        "purpose": "Wall thickness around the niche image."
+      },
+      {
+        "name": "sill-drop",
+        "value": "0 10px 16px -10px oklch(0.2 0.04 40 / 0.6)",
+        "purpose": "Under every niche sill."
+      },
+      {
+        "name": "bench-inset",
+        "value": "inset 0 6px 10px -6px oklch(0.2 0.04 40 / 0.5)",
+        "purpose": "Terracotta bench under the hero niches."
+      },
+      {
+        "name": "glaze",
+        "value": "0 6px 14px -6px oklch(0.25 0.06 175 / 0.7)",
+        "purpose": "Primary button at rest."
+      },
+      {
+        "name": "glaze-pressed",
+        "value": "0 3px 8px -4px oklch(0.25 0.06 175 / 0.7)",
+        "purpose": "Primary button active."
+      },
+      {
+        "name": "header-settle",
+        "value": "0 6px 18px -12px oklch(0.25 0.04 40 / 0.6)",
+        "purpose": "Sticky header after 24px of scroll."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for buttons, image zoom and entrances."
+      },
+      {
+        "name": "state",
+        "value": "250ms",
+        "purpose": "Hover and press transitions."
+      },
+      {
+        "name": "rise",
+        "value": "opacity 0 + translateY(16px) to rest, 0.9s ease-out-expo",
+        "purpose": "Hero text and mobile menu entrance."
+      },
+      {
+        "name": "niche-light",
+        "value": "brightness(0.45) saturate(0.7) to none, 1.6s ease-out-expo, staggered 180ms",
+        "purpose": "Light entering the niches on load."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animations and transitions off",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Glazed zellige tile for the main action of a view.",
+      "html": "<button class=\"ds-btn-primary\">Voir les parfums</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: 0.8rem 1.6rem; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.95rem; font-weight: 450; border: none; border-radius: 2px; background: oklch(0.42 0.08 175); color: oklch(0.93 0.035 75); box-shadow: 0 6px 14px -6px oklch(0.25 0.06 175 / 0.7); cursor: pointer; transition: background-color 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: oklch(0.33 0.06 175); } .ds-btn-primary:active { transform: translateY(1px); box-shadow: 0 3px 8px -4px oklch(0.25 0.06 175 / 0.7); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action; fills with ink on hover.",
+      "html": "<button class=\"ds-btn-outline\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg> Ajouter aux favoris</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3rem; padding: 0.8rem 1.6rem; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.95rem; font-weight: 450; border: 1px solid currentColor; border-radius: 2px; background: transparent; color: oklch(0.22 0.04 40); cursor: pointer; transition: background-color 0.25s, color 0.25s; } .ds-btn-outline:hover { background: oklch(0.22 0.04 40); color: oklch(0.93 0.035 75); border-color: oklch(0.22 0.04 40); } .ds-btn-outline:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Square filter chips; selected fills with zellige.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-on\" aria-pressed=\"true\">Tout</button><button class=\"ds-chip\" aria-pressed=\"false\">Lattafa</button><button class=\"ds-chip\" aria-pressed=\"false\">Oud Mood &amp; Musk Mood</button></div>",
+      "css": ".ds-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; } .ds-chip { min-height: 2.5rem; padding: 0.5rem 1rem; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.875rem; font-weight: 350; border: 1px solid oklch(0.36 0.06 40 / 0.4); border-radius: 0; background: transparent; color: oklch(0.22 0.04 40); cursor: pointer; transition: border-color 0.2s, background-color 0.2s; } .ds-chip:hover { border-color: oklch(0.22 0.04 40); } .ds-chip:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; } .ds-chip-on, .ds-chip-on:hover { background: oklch(0.42 0.08 175); border-color: oklch(0.42 0.08 175); color: oklch(0.93 0.035 75); }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "",
+      "description": "Underline-only search on the wall; underline turns emerald on focus.",
+      "html": "<label class=\"ds-search\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"Rechercher un parfum, une marque\" /></label>",
+      "css": ".ds-search { position: relative; display: block; max-width: 36rem; color: oklch(0.36 0.06 40); } .ds-search svg { position: absolute; left: 0; top: 50%; transform: translateY(-50%); } .ds-search input { width: 100%; background: transparent; border: none; border-bottom: 1px solid oklch(0.36 0.06 40 / 0.5); padding: 0.75rem 0 0.75rem 2rem; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 1.125rem; font-weight: 350; color: oklch(0.22 0.04 40); caret-color: oklch(0.42 0.08 175); transition: border-color 0.2s; } .ds-search input::placeholder { color: oklch(0.36 0.06 40 / 0.8); } .ds-search input:focus { outline: none; border-bottom-color: oklch(0.42 0.08 175); }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Wordmark, three links that turn emerald on hover and when active.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-logo\" href=\"#\"><span>Maison</span><b>Sillombre</b></a><div class=\"ds-links\"><a href=\"#\" class=\"ds-active\">Catalogue</a><a href=\"#\">La Maison</a><a href=\"#\">Contact</a></div></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 2rem; height: 5rem; padding: 0 2.5rem; background: oklch(0.8 0.07 46); color: oklch(0.22 0.04 40); } .ds-logo { display: inline-flex; align-items: baseline; gap: 0.5rem; text-decoration: none; color: inherit; } .ds-logo span { font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.8rem; color: oklch(0.36 0.06 40); } .ds-logo b { font-family: 'Reem Kufi', 'Readex Pro', sans-serif; font-weight: 600; font-size: 1.75rem; letter-spacing: 0.02em; } .ds-links { display: flex; gap: 2rem; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.95rem; font-weight: 350; } .ds-links a { color: inherit; text-decoration: none; transition: color 0.2s; } .ds-links a:hover, .ds-links a.ds-active { color: oklch(0.42 0.08 175); } .ds-links a:focus-visible, .ds-logo:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    },
+    {
+      "name": "Product in Niche",
+      "kind": "card",
+      "refersTo": "",
+      "description": "The product card: arch niche, terracotta sill, title, brand line and price on the wall.",
+      "html": "<article class=\"ds-product\"><div class=\"ds-niche\"><div class=\"ds-bottle\"></div></div><div class=\"ds-sill\"></div><div class=\"ds-meta\"><a href=\"#\"><h3>Yara</h3><p>Lattafa</p><p>Prix à venir</p></a><button aria-label=\"Ajouter aux favoris\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg></button></div></article>",
+      "css": ".ds-product { width: 15rem; } .ds-niche { position: relative; aspect-ratio: 3 / 4; background: linear-gradient(to bottom, oklch(0.42 0.07 38), oklch(0.56 0.085 42) 70%, oklch(0.78 0.06 48)); -webkit-mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M26 400V224A145 145 0 1 1 274 224V400Z'/%3E%3C/svg%3E\") center / 100% 100% no-repeat; mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M26 400V224A145 145 0 1 1 274 224V400Z'/%3E%3C/svg%3E\") center / 100% 100% no-repeat; } .ds-bottle { position: absolute; inset: 5% 4.5% 2.5%; background: radial-gradient(ellipse 30% 40% at 50% 60%, oklch(0.75 0.08 20), oklch(0.3 0.05 40)); -webkit-mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M26 400V224A145 145 0 1 1 274 224V400Z'/%3E%3C/svg%3E\") center / 100% 100% no-repeat; mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M26 400V224A145 145 0 1 1 274 224V400Z'/%3E%3C/svg%3E\") center / 100% 100% no-repeat; } .ds-sill { height: 0.9rem; background-color: oklch(0.64 0.1 40); background-image: linear-gradient(to bottom, oklch(0.78 0.06 46 / 0.7), transparent 30%); box-shadow: 0 10px 16px -10px oklch(0.2 0.04 40 / 0.6); } .ds-meta { margin-top: 0.75rem; display: flex; justify-content: space-between; gap: 0.5rem; } .ds-meta a { text-decoration: none; color: oklch(0.22 0.04 40); } .ds-meta h3 { margin: 0; font-family: 'Reem Kufi', 'Readex Pro', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.01em; word-spacing: 0.14em; line-height: 1.05; font-size: 1.5rem; transition: color 0.2s; } .ds-meta a:hover h3 { color: oklch(0.42 0.08 175); } .ds-meta p { margin: 0.25rem 0 0; font-family: 'Readex Pro', system-ui, sans-serif; font-size: 0.875rem; color: oklch(0.36 0.06 40); } .ds-meta button { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; margin-right: -0.5rem; border: none; background: none; color: oklch(0.36 0.06 40); cursor: pointer; } .ds-meta button:hover { color: oklch(0.22 0.04 40); } .ds-meta a:focus-visible, .ds-meta button:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    },
+    {
+      "name": "Rail Control",
+      "kind": "button",
+      "refersTo": "rail-control",
+      "description": "Circular previous/next control for the horizontal product rail (desktop).",
+      "html": "<div class=\"ds-rail\"><button class=\"ds-rail-btn\" disabled aria-label=\"Précédents\" style=\"transform:scaleX(-1)\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"/></svg></button><button class=\"ds-rail-btn\" aria-label=\"Suivants\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"/></svg></button></div>",
+      "css": ".ds-rail { display: flex; gap: 0.5rem; } .ds-rail-btn { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 9999px; border: 1px solid oklch(0.36 0.06 40 / 0.4); background: transparent; color: oklch(0.22 0.04 40); cursor: pointer; transition: border-color 0.2s, background-color 0.2s; } .ds-rail-btn:hover { border-color: oklch(0.22 0.04 40); background: oklch(0.86 0.05 52 / 0.6); } .ds-rail-btn:disabled { opacity: 0.35; cursor: default; border-color: oklch(0.36 0.06 40 / 0.4); background: transparent; } .ds-rail-btn:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    },
+    {
+      "name": "Zellige Dado and Cedar Footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "The page foot: zellige band between cedar rules, then cedar wood.",
+      "html": "<footer class=\"ds-foot\"><div class=\"ds-zellige\"></div><div class=\"ds-cedar\"><p class=\"ds-mark\">Sillombre</p><p class=\"ds-head\">Collections</p><a href=\"#\">Lattafa</a></div></footer>",
+      "css": ".ds-zellige { height: 4.5rem; border-top: 4px solid oklch(0.25 0.04 40); border-bottom: 4px solid oklch(0.25 0.04 40); background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%230b4a41'/%3E%3Cpolygon points='39.71,30.51 32.91,32.91 30.51,39.71 24.00,36.60 17.49,39.71 15.09,32.91 8.29,30.51 11.40,24.00 8.29,17.49 15.09,15.09 17.49,8.29 24.00,11.40 30.51,8.29 32.91,15.09 39.71,17.49 36.60,24.00' fill='%23f1dcc3'/%3E%3Cpolygon points='34.62,28.40 30.01,30.01 28.40,34.62 24.00,32.50 19.60,34.62 17.99,30.01 13.38,28.40 15.50,24.00 13.38,19.60 17.99,17.99 19.60,13.38 24.00,15.50 28.40,13.38 30.01,17.99 34.62,19.60 32.50,24.00' fill='%231f3f7a'/%3E%3Cpolygon points='27.88,25.61 26.19,26.19 25.61,27.88 24.00,27.10 22.39,27.88 21.81,26.19 20.12,25.61 20.90,24.00 20.12,22.39 21.81,21.81 22.39,20.12 24.00,20.90 25.61,20.12 26.19,21.81 27.88,22.39 27.10,24.00' fill='%23c8984a'/%3E%3C/svg%3E\") center / 48px 48px repeat; } .ds-cedar { background: oklch(0.25 0.04 40); color: oklch(0.9 0.04 70); padding: 3.5rem 2.5rem; font-family: 'Readex Pro', system-ui, sans-serif; font-weight: 350; } .ds-mark { margin: 0 0 1.5rem; font-family: 'Reem Kufi', sans-serif; font-weight: 600; font-size: 2.25rem; } .ds-head { margin: 0 0 1rem; font-size: 0.875rem; color: oklch(0.9 0.04 70 / 0.6); } .ds-cedar a { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: text-decoration-color 0.25s; } .ds-cedar a:hover { text-decoration-color: currentColor; } .ds-cedar a:focus-visible { outline: 2px solid oklch(0.42 0.08 175); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le mur du riad",
+    "overview": "The site is one continuous wall of polished tadelakt plaster. Every bottle sits in a horseshoe-arch niche carved into that wall; the wall itself, warm ochre-rose with soft marbling and a fine grain, covers every page, so the colour strategy is committed rather than accented. Deeper terracotta marks secondary walls, dark cedar wood holds the footer and the mobile menu, a band of eight-pointed-star zellige forms the dado at the foot of every page, and a single emerald zellige glaze is reserved for actions.\n\nThe interface stays in service of the bottles: photography carries the emotion, type is set in two Arabic-Latin families (Reem Kufi for headings, Readex Pro for text) whose kufic geometry belongs to the same world as the arches. Density is relaxed and gallery-like; niches vary in height within a row but share one sill, as built masonry would. Depth comes from carving (inner shadow of the arch, a lit sill, a darker reveal), never from floating cards.\n\nThe build rejects the cream-and-serif perfumery look with a grid of identical cards: there are no white surfaces, no card boxes and no generic serif display face.",
+    "keyCharacteristics": [
+      "A plastered ground on every page (the tadelakt treatment on `body`), never a flat fill or white.",
+      "Bottles and collections always appear inside an arch niche at 3:4, set on a terracotta sill.",
+      "Emerald zellige is the only action colour; terracotta and cedar are walls, not accents.",
+      "Near-square corners (2px) on everything rectilinear; the arch is the only curve, apart from circular icon controls.",
+      "Reem Kufi headings with slightly opened word spacing; light-weight (350) Readex Pro text."
+    ],
+    "rules": [
+      {
+        "name": "The One Glaze Rule",
+        "body": "Emerald zellige means \"act here\". It never decorates a surface, a heading at rest or a divider; if something is green and not interactive (or the current location), it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Plastered Wall Rule",
+        "body": "No page or section sits on a flat colour: grounds are tadelakt, terracotta tadelakt, or cedar. Never introduce white or cream surfaces.",
+        "section": "colors"
+      },
+      {
+        "name": "The Open Kufic Rule",
+        "body": "Headings carry word spacing of +0.14em: Reem Kufi's tight default spacing jams words together at display sizes. Keep it on every heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Label Rule",
+        "body": "Small labels stay in Readex Pro, sentence case, regular tracking. No uppercase letter-spaced tags above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Carved-Not-Floating Rule",
+        "body": "Nothing hovers above the wall. Depth is expressed as recess (niche), ledge (sill, bench) or glaze; there are no card shadows and no hard offset shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every page on the tadelakt plaster treatment and every secondary wall on terracotta tadelakt or cedar.",
+      "**Do** present every product and collection image inside the arch niche at 3:4, resting on a sill.",
+      "**Do** align a row of niches of different heights on one shared sill or bench.",
+      "**Do** keep Zellige Emerald for actions, selection and current location only, with Deep Glaze (`zellige-deep`) on hover.",
+      "**Do** keep heading word spacing at +0.14em and body text at Readex Pro 350.",
+      "**Do** mark missing merchant content with the dashed Soft Ink tag rather than inventing it."
+    ],
+    "donts": [
+      "**Don't** use white or cream surfaces, boxed cards, or a grid of identical bordered product cards.",
+      "**Don't** introduce a second curve family (rounded cards, pill buttons); the arch and the circular icon control are the only curves.",
+      "**Don't** float elements with card shadows or hard offset shadows; depth is recess, ledge or glaze.",
+      "**Don't** put uppercase letter-spaced labels or tags above headings.",
+      "**Don't** use the zellige pattern as a surface fill or background behind text; it is a band only."
+    ]
+  }
+}

@@ -215,13 +215,6 @@
 @utility zellige-band {
   background: url("./assets/ornament/zellige.svg") center / 48px 48px repeat;
 }
-@utility eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--ink-soft);
-}
 @utility container-lux {
   width: 100%;
   max-width: 84rem;

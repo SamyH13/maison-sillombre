@@ -80,7 +80,7 @@ function Index() {
           <div className="mt-12 grid grid-cols-3 md:grid-cols-[1fr_1.3fr_1.15fr_0.9fr] md:grid-rows-[auto_auto_auto] gap-x-3 gap-y-10 md:gap-x-6 md:gap-y-0">
             {categories.map((c, i) => (
               <Link key={c.slug} to="/catalogue" search={{ cat: c.slug }} className={`group flex flex-col ${wallCols[i]} md:row-start-1 md:row-span-3 md:grid md:grid-rows-subgrid`}>
-                <div className={`niche md:self-end ${i === 1 ? "w-[64%] mx-auto md:w-auto" : ""}`}><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" /></div>
+                <div className={`niche md:self-end ${i === 1 ? "w-[64%] mx-auto md:w-full md:mx-0" : ""}`}><img src={c.image} alt="" loading="lazy" width={900} height={1200} className="object-cover" /></div>
                 <div className={`niche-sill md:invisible ${i === 1 ? "" : "-mr-3 md:mr-0"}`} aria-hidden="true" />
                 <span className="mt-4 block">
                   <h3 className={`${i === 1 ? "text-3xl text-center md:text-left" : "text-lg sm:text-2xl"} md:text-3xl group-hover:text-zellige-deep transition-colors`}>{c.name}</h3>
