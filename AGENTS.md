@@ -1,4 +1,4 @@
-# Maison Sillombre — règles du projet
+# Mille et Un Sillages — règles du projet
 
 Ce dépôt a été importé depuis un projet Lovable (template TanStack Start). Il n'est
 pas synchronisé avec Lovable : il est développé directement ici.

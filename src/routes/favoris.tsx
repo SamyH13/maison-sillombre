@@ -7,9 +7,9 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/favoris")({
   head: () => ({
     meta: [
-      { title: "Mes favoris — Maison Sillombre" },
+      { title: "Mes favoris — Mille et Un Sillages" },
       { name: "description", content: "Retrouvez les parfums que vous avez mis de côté." },
-      { property: "og:title", content: "Mes favoris — Maison Sillombre" },
+      { property: "og:title", content: "Mes favoris — Mille et Un Sillages" },
       { property: "og:description", content: "Retrouvez les parfums que vous avez mis de côté." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

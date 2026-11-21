@@ -9,11 +9,11 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/panier")({
   head: () => ({
     meta: [
-      { title: "Panier — Maison Sillombre" },
-      { name: "description", content: "Votre panier Maison Sillombre." },
+      { title: "Panier — Mille et Un Sillages" },
+      { name: "description", content: "Votre panier Mille et Un Sillages." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Panier — Maison Sillombre" },
-      { property: "og:description", content: "Votre panier Maison Sillombre." },
+      { property: "og:title", content: "Panier — Mille et Un Sillages" },
+      { property: "og:description", content: "Votre panier Mille et Un Sillages." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

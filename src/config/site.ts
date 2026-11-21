@@ -3,7 +3,7 @@
  * un message honnête au lieu d'une information inventée.
  */
 export const siteConfig = {
-  name: "Maison Sillombre",
+  name: "Mille et Un Sillages",
   currency: "EUR" as const,
   locale: "fr-FR",
   /** Numéro WhatsApp au format international sans "+" ni espaces, ex. "33612345678". */

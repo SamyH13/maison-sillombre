@@ -1,7 +1,7 @@
 import type { Product } from "./catalog";
 
 /**
- * Catalogue réel Maison Sillombre — généré depuis le pack « 37 produits » (CSV du 21/11/2026).
+ * Catalogue réel Mille et Un Sillages — généré depuis le pack « 37 produits » (CSV du 21/11/2026).
  * Prix et stocks : null tant qu'ils ne sont pas renseignés (affichés « Prix à venir »).
  * Les 9 soins IMP'HAIR sont regroupés en 3 trios (bleu, rose, bordeaux) vendus uniquement ensemble.
  * Photos : public/produits/.
@@ -85,9 +85,9 @@ export const products: Product[] = [
       ],
     },
     seo: {
-      title: "IMP’HAIR Professionnel – Trio Hydratant Réparateur (Ricin & Soie) | Maison Sillombre",
+      title: "IMP’HAIR Professionnel – Trio Hydratant Réparateur (Ricin & Soie) | Mille et Un Sillages",
       description:
-        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme bleue à l’huile de ricin et aux protéines de soie, chez Maison Sillombre.",
+        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme bleue à l’huile de ricin et aux protéines de soie, chez Mille et Un Sillages.",
     },
     variants: [
       {
@@ -181,9 +181,9 @@ export const products: Product[] = [
     },
     seo: {
       title:
-        "IMP’HAIR Professionnel – Trio Effet Glossy Restructurant (Biotine & Acide hyaluronique) | Maison Sillombre",
+        "IMP’HAIR Professionnel – Trio Effet Glossy Restructurant (Biotine & Acide hyaluronique) | Mille et Un Sillages",
       description:
-        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme rose à la biotine et à l’acide hyaluronique, chez Maison Sillombre.",
+        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme rose à la biotine et à l’acide hyaluronique, chez Mille et Un Sillages.",
     },
     variants: [
       {
@@ -276,9 +276,9 @@ export const products: Product[] = [
     },
     seo: {
       title:
-        "IMP’HAIR Professionnel – Trio Rituel Coréen (Peptides & Céramides) | Maison Sillombre",
+        "IMP’HAIR Professionnel – Trio Rituel Coréen (Peptides & Céramides) | Mille et Un Sillages",
       description:
-        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme rouge bordeaux aux peptides et aux céramides, chez Maison Sillombre.",
+        "Trio shampoing, masque et sérum IMP’HAIR Professionnel, gamme rouge bordeaux aux peptides et aux céramides, chez Mille et Un Sillages.",
     },
     variants: [
       {
@@ -314,7 +314,7 @@ export const products: Product[] = [
     usage:
       "Utiliser le gel douche lors de la toilette, puis la brume sur le corps selon les indications du flacon ; vaporiser l’eau de parfum sur la peau en évitant les yeux.",
     seo: {
-      title: "Volaré Esta Puro – Coffret Eau de Parfum + Brume + Gel Douche | Maison Sillombre",
+      title: "Volaré Esta Puro – Coffret Eau de Parfum + Brume + Gel Douche | Mille et Un Sillages",
       description:
         "Trois façons de profiter d’une même fragrance, dans un coffret à offrir ou à s’offrir. Découvrez Esta Puro – Coffret Eau de Parfum + Brume + Gel Douche…",
     },
@@ -349,9 +349,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Musk Mood 100 ml | Maison Sillombre",
+      title: "Lattafa Musk Mood 100 ml | Mille et Un Sillages",
       description:
-        "Une eau de parfum tendre qui fait du musc sa signature. Découvrez Musk Mood chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une eau de parfum tendre qui fait du musc sa signature. Découvrez Musk Mood chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -384,9 +384,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Oud Mood 100 ml | Maison Sillombre",
+      title: "Lattafa Oud Mood 100 ml | Mille et Un Sillages",
       description:
-        "Une signature orientale généreuse, entre épices et bois chauds. Découvrez Oud Mood chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une signature orientale généreuse, entre épices et bois chauds. Découvrez Oud Mood chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -419,9 +419,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Oud Mood Reminiscence 100 ml | Maison Sillombre",
+      title: "Lattafa Oud Mood Reminiscence 100 ml | Mille et Un Sillages",
       description:
-        "Une autre interprétation d’Oud Mood, aux nuances ambrées et florales. Découvrez Oud Mood Reminiscence chez Maison Sillombre, votre boutique de parfums et…",
+        "Une autre interprétation d’Oud Mood, aux nuances ambrées et florales. Découvrez Oud Mood Reminiscence chez Mille et Un Sillages, votre boutique de parfums et…",
     },
     variants: [
       {
@@ -454,9 +454,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Mayar Natural Intense 100 ml | Maison Sillombre",
+      title: "Lattafa Mayar Natural Intense 100 ml | Mille et Un Sillages",
       description:
-        "Une escapade fraîche et lumineuse, à la douceur florale. Découvrez Mayar Natural Intense chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une escapade fraîche et lumineuse, à la douceur florale. Découvrez Mayar Natural Intense chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -489,9 +489,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Mayar 100 ml | Maison Sillombre",
+      title: "Lattafa Mayar 100 ml | Mille et Un Sillages",
       description:
-        "Un bouquet fruité-floral qui attire par sa douceur lumineuse. Découvrez Mayar chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un bouquet fruité-floral qui attire par sa douceur lumineuse. Découvrez Mayar chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -524,9 +524,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Loui Martin Vanilla Powdery Elixir 100 ml | Maison Sillombre",
+      title: "Loui Martin Vanilla Powdery Elixir 100 ml | Mille et Un Sillages",
       description:
-        "La vanille dans une interprétation plus intense et réconfortante. Découvrez Vanilla Powdery Elixir chez Maison Sillombre, votre boutique de parfums et de…",
+        "La vanille dans une interprétation plus intense et réconfortante. Découvrez Vanilla Powdery Elixir chez Mille et Un Sillages, votre boutique de parfums et de…",
     },
     variants: [
       {
@@ -559,9 +559,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Loui Martin Vanilla Powdery 100 ml | Maison Sillombre",
+      title: "Loui Martin Vanilla Powdery 100 ml | Mille et Un Sillages",
       description:
-        "Une vanille douce, délicate et facile à aimer. Découvrez Vanilla Powdery chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une vanille douce, délicate et facile à aimer. Découvrez Vanilla Powdery chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -594,9 +594,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Khamrah Dukhan 100 ml | Maison Sillombre",
+      title: "Lattafa Khamrah Dukhan 100 ml | Mille et Un Sillages",
       description:
-        "L’interprétation fumée et audacieuse de la collection Khamrah. Découvrez Khamrah Dukhan chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "L’interprétation fumée et audacieuse de la collection Khamrah. Découvrez Khamrah Dukhan chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -629,9 +629,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Khamrah Qahwa 100 ml | Maison Sillombre",
+      title: "Lattafa Khamrah Qahwa 100 ml | Mille et Un Sillages",
       description:
-        "La rencontre du café et des épices dans une composition généreuse. Découvrez Khamrah Qahwa chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "La rencontre du café et des épices dans une composition généreuse. Découvrez Khamrah Qahwa chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -664,9 +664,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Khamrah Original 100 ml | Maison Sillombre",
+      title: "Lattafa Khamrah Original 100 ml | Mille et Un Sillages",
       description:
-        "L’emblématique composition gourmande aux accents de dattes et d’épices. Découvrez Khamrah Original chez Maison Sillombre, votre boutique de parfums et de…",
+        "L’emblématique composition gourmande aux accents de dattes et d’épices. Découvrez Khamrah Original chez Mille et Un Sillages, votre boutique de parfums et de…",
     },
     variants: [
       {
@@ -699,9 +699,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Summer Bottled 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Summer Bottled 100 ml | Mille et Un Sillages",
       description:
-        "Un parfum qui rappelle la lumière des beaux jours et l’évasion. Découvrez Kenzie Summer Bottled chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un parfum qui rappelle la lumière des beaux jours et l’évasion. Découvrez Kenzie Summer Bottled chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -734,9 +734,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Silk Serenity 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Silk Serenity 100 ml | Mille et Un Sillages",
       description:
-        "Un voile floral et gourmand au toucher délicatement soyeux. Découvrez Kenzie Silk Serenity chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un voile floral et gourmand au toucher délicatement soyeux. Découvrez Kenzie Silk Serenity chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -769,9 +769,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Oud Blend 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Oud Blend 100 ml | Mille et Un Sillages",
       description:
-        "Une composition contrastée où le oud rencontre une douceur délicate. Découvrez Kenzie Oud Blend chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une composition contrastée où le oud rencontre une douceur délicate. Découvrez Kenzie Oud Blend chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -804,9 +804,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Mystique Fleur 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Mystique Fleur 100 ml | Mille et Un Sillages",
       description:
-        "Un bouquet moderne, aussi pétillant que délicat. Découvrez Kenzie Mystique Fleur chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un bouquet moderne, aussi pétillant que délicat. Découvrez Kenzie Mystique Fleur chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -839,9 +839,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Exotic Apple Crush 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Exotic Apple Crush 100 ml | Mille et Un Sillages",
       description:
-        "Une explosion fruitée qui révèle une élégance lumineuse. Découvrez Kenzie Exotic Apple Crush chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une explosion fruitée qui révèle une élégance lumineuse. Découvrez Kenzie Exotic Apple Crush chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -874,9 +874,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Lemon Spark 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Lemon Spark 100 ml | Mille et Un Sillages",
       description:
-        "Un éclat citronné adouci par une gourmandise délicate. Découvrez Kenzie Lemon Spark chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un éclat citronné adouci par une gourmandise délicate. Découvrez Kenzie Lemon Spark chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -909,9 +909,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Classic Pistachio 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Classic Pistachio 100 ml | Mille et Un Sillages",
       description:
-        "Une gourmandise élégante autour de la pistache. Découvrez Kenzie Classic Pistachio chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une gourmandise élégante autour de la pistache. Découvrez Kenzie Classic Pistachio chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -944,9 +944,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Amber Lychee 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Amber Lychee 100 ml | Mille et Un Sillages",
       description:
-        "L’éclat du litchi rencontre un fond ambré délicieusement doux. Découvrez Kenzie Amber Lychee chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "L’éclat du litchi rencontre un fond ambré délicieusement doux. Découvrez Kenzie Amber Lychee chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -979,9 +979,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Volaré Kenzie Marshmallow Dream 100 ml | Maison Sillombre",
+      title: "Volaré Kenzie Marshmallow Dream 100 ml | Mille et Un Sillages",
       description:
-        "Une parenthèse sucrée inspirée de la douceur d’une guimauve. Découvrez Kenzie Marshmallow Dream chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une parenthèse sucrée inspirée de la douceur d’une guimauve. Découvrez Kenzie Marshmallow Dream chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1014,9 +1014,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Confidential Private Gold 100 ml | Maison Sillombre",
+      title: "Lattafa Confidential Private Gold 100 ml | Mille et Un Sillages",
       description:
-        "Une eau de parfum lumineuse aux fruits délicats et au fond chaleureux. Découvrez Confidential Private Gold chez Maison Sillombre, votre boutique de…",
+        "Une eau de parfum lumineuse aux fruits délicats et au fond chaleureux. Découvrez Confidential Private Gold chez Mille et Un Sillages, votre boutique de…",
     },
     variants: [
       {
@@ -1049,9 +1049,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Asad Original 100 ml | Maison Sillombre",
+      title: "Lattafa Asad Original 100 ml | Mille et Un Sillages",
       description:
-        "Un parfum de caractère aux accords épicés et ambrés. Découvrez Asad Original chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Un parfum de caractère aux accords épicés et ambrés. Découvrez Asad Original chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1084,9 +1084,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Asad Zanzibar 100 ml | Maison Sillombre",
+      title: "Lattafa Asad Zanzibar 100 ml | Mille et Un Sillages",
       description:
-        "Une variation inattendue, entre fraîcheur marine et vanille. Découvrez Asad Zanzibar chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une variation inattendue, entre fraîcheur marine et vanille. Découvrez Asad Zanzibar chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1119,9 +1119,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Asad Bourbon 100 ml | Maison Sillombre",
+      title: "Lattafa Asad Bourbon 100 ml | Mille et Un Sillages",
       description:
-        "L’élégance d’Asad revisitée autour de la vanille bourbon. Découvrez Asad Bourbon chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "L’élégance d’Asad revisitée autour de la vanille bourbon. Découvrez Asad Bourbon chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1154,9 +1154,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Yara Moi 100 ml | Maison Sillombre",
+      title: "Lattafa Yara Moi 100 ml | Mille et Un Sillages",
       description:
-        "Une élégance délicate, entre fleurs blanches et douceur vanillée. Découvrez Yara Moi chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une élégance délicate, entre fleurs blanches et douceur vanillée. Découvrez Yara Moi chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1189,9 +1189,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Yara Original 100 ml | Maison Sillombre",
+      title: "Lattafa Yara Original 100 ml | Mille et Un Sillages",
       description:
-        "Une douceur poudrée et gourmande devenue emblématique. Découvrez Yara Original chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une douceur poudrée et gourmande devenue emblématique. Découvrez Yara Original chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1224,9 +1224,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Yara Elixir 100 ml | Maison Sillombre",
+      title: "Lattafa Yara Elixir 100 ml | Mille et Un Sillages",
       description:
-        "Une version généreuse de Yara, entre gourmandise et fleurs lumineuses. Découvrez Yara Elixir chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "Une version généreuse de Yara, entre gourmandise et fleurs lumineuses. Découvrez Yara Elixir chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {
@@ -1259,9 +1259,9 @@ export const products: Product[] = [
     usage:
       "Vaporiser à distance modérée sur la peau, en évitant les yeux. Ne pas appliquer sur une peau irritée.",
     seo: {
-      title: "Lattafa Yara Candy 100 ml | Maison Sillombre",
+      title: "Lattafa Yara Candy 100 ml | Mille et Un Sillages",
       description:
-        "L’univers Yara dans une version pétillante et irrésistiblement sucrée. Découvrez Yara Candy chez Maison Sillombre, votre boutique de parfums et de soins.",
+        "L’univers Yara dans une version pétillante et irrésistiblement sucrée. Découvrez Yara Candy chez Mille et Un Sillages, votre boutique de parfums et de soins.",
     },
     variants: [
       {

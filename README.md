@@ -1,8 +1,8 @@
-# Maison Sillombre
+# Mille et Un Sillages
 
 Boutique en ligne de parfums (dont parfums orientaux et de Dubaï) et cosmétiques.
 
-Code importé depuis le projet Lovable « Maison Sillombre » (TanStack Start, React, TypeScript, Tailwind CSS).
+Code importé depuis le projet Lovable « Mille et Un Sillages » (TanStack Start, React, TypeScript, Tailwind CSS).
 
 ## État actuel (Phase 1)
 

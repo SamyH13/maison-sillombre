@@ -84,9 +84,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Maison Sillombre — Parfumerie" },
-      { name: "description", content: "Maison Sillombre : parfums Lattafa, Volaré, Loui Martin, coffrets et soins capillaires IMP’HAIR." },
-      { property: "og:title", content: "Maison Sillombre" },
+      { title: "Mille et Un Sillages — Parfumerie" },
+      { name: "description", content: "Mille et Un Sillages : parfums Lattafa, Volaré, Loui Martin, coffrets et soins capillaires IMP’HAIR." },
+      { property: "og:title", content: "Mille et Un Sillages" },
       { property: "og:description", content: "Parfums, coffrets et soins capillaires." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

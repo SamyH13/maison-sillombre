@@ -6,10 +6,10 @@ import { ExampleTag } from "@/components/site/ExampleTag";
 export const Route = createFileRoute("/maison")({
   head: () => ({
     meta: [
-      { title: "La Maison — Maison Sillombre" },
-      { name: "description", content: "L'histoire et la sélection de Maison Sillombre, parfumerie indépendante." },
-      { property: "og:title", content: "La Maison — Maison Sillombre" },
-      { property: "og:description", content: "L'histoire et la sélection de Maison Sillombre, parfumerie indépendante." },
+      { title: "La Maison — Mille et Un Sillages" },
+      { name: "description", content: "L'histoire et la sélection de Mille et Un Sillages, parfumerie indépendante." },
+      { property: "og:title", content: "La Maison — Mille et Un Sillages" },
+      { property: "og:description", content: "L'histoire et la sélection de Mille et Un Sillages, parfumerie indépendante." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

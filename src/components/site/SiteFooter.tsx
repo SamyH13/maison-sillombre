@@ -6,8 +6,8 @@ export function SiteFooter() {
     <footer className="bg-ink text-ink-foreground mt-24">
       <div className="container-lux py-16 md:py-20 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2 max-w-sm">
-          <p className="eyebrow text-champagne">Maison</p>
-          <p className="font-serif text-4xl tracking-[0.2em] mt-2">SILLOMBRE</p>
+          <p className="eyebrow text-champagne">Mille et un</p>
+          <p className="text-4xl font-bold uppercase tracking-[0.1em] mt-2">Sillages</p>
           <p className="mt-6 text-sm text-ink-foreground/65 leading-relaxed">Parfums, coffrets et soins capillaires, choisis par un commerçant indépendant.</p>
         </div>
         <div>
@@ -28,7 +28,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-ink-foreground/10">
         <div className="container-lux py-6 flex flex-col md:flex-row gap-2 justify-between text-xs text-ink-foreground/50">
-          <p>© {new Date().getFullYear()} Maison Sillombre</p>
+          <p>© {new Date().getFullYear()} Mille et Un Sillages</p>
           <p>Boutique en préparation — la vente en ligne n'est pas encore ouverte.</p>
         </div>
       </div>

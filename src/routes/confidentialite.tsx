@@ -5,10 +5,10 @@ import { ExampleTag } from "@/components/site/ExampleTag";
 export const Route = createFileRoute("/confidentialite")({
   head: () => ({
     meta: [
-      { title: "Politique de confidentialité — Maison Sillombre" },
-      { name: "description", content: "Politique de confidentialité de Maison Sillombre." },
-      { property: "og:title", content: "Politique de confidentialité — Maison Sillombre" },
-      { property: "og:description", content: "Politique de confidentialité de Maison Sillombre." },
+      { title: "Politique de confidentialité — Mille et Un Sillages" },
+      { name: "description", content: "Politique de confidentialité de Mille et Un Sillages." },
+      { property: "og:title", content: "Politique de confidentialité — Mille et Un Sillages" },
+      { property: "og:description", content: "Politique de confidentialité de Mille et Un Sillages." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

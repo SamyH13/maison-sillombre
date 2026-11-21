@@ -8,9 +8,9 @@ import { ExampleTag } from "@/components/site/ExampleTag";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison Sillombre — Parfumerie confidentielle" },
+      { title: "Mille et Un Sillages — Parfumerie confidentielle" },
       { name: "description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR, sélectionnés par une maison indépendante." },
-      { property: "og:title", content: "Maison Sillombre — Parfumerie confidentielle" },
+      { property: "og:title", content: "Mille et Un Sillages — Parfumerie confidentielle" },
       { property: "og:description", content: "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR, sélectionnés par une maison indépendante." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,9 +33,9 @@ function Index() {
         <img src={hero} alt="Flacon de parfum sur pierre ivoire dans une lumière dorée" width={1920} height={1088} className="absolute inset-0 size-full object-cover object-[60%_center] animate-slowzoom opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
         <div className="relative container-lux flex h-full flex-col justify-end pb-16 md:pb-24">
-          <p className="eyebrow text-champagne animate-rise">Maison de parfumerie</p>
+          <p className="eyebrow text-champagne animate-rise">Parfumerie</p>
           <h1 className="mt-5 max-w-3xl text-[2.8rem] leading-[0.95] md:text-7xl font-bold uppercase animate-rise [animation-delay:150ms]">
-            L'ombre <em className="text-champagne">d'un</em> sillage.
+            Mille <em className="text-champagne">et un</em> sillages.
           </h1>
           <p className="mt-6 max-w-md text-ink-foreground/75 leading-relaxed animate-rise [animation-delay:300ms]">
             Parfums, coffrets et soins capillaires, choisis un à un pour celles et ceux qui préfèrent la confidence à l'évidence.
@@ -50,7 +50,7 @@ function Index() {
         <p className="eyebrow text-muted-foreground md:col-span-3">La Maison</p>
         <div className="md:col-span-8">
           <h2 className="text-3xl md:text-5xl leading-[1.1]">Un parfum ne s'annonce pas. <span className="italic text-muted-foreground">Il se devine</span>, il s'attarde, il reste.</h2>
-          <p className="mt-8 max-w-xl text-muted-foreground leading-relaxed">Maison Sillombre réunit des fragrances et des soins sélectionnés par un commerçant indépendant. Le texte de présentation définitif de la maison sera rédigé avec vous.</p>
+          <p className="mt-8 max-w-xl text-muted-foreground leading-relaxed">Mille et Un Sillages réunit des fragrances et des soins sélectionnés par un commerçant indépendant. Le texte de présentation définitif de la maison sera rédigé avec vous.</p>
           <Link to="/maison" className="mt-8 inline-block eyebrow link-lux">Notre histoire</Link>
         </div>
       </section>

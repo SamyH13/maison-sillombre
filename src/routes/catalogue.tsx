@@ -31,17 +31,17 @@ export const Route = createFileRoute("/catalogue")({
   },
   head: () => ({
     meta: [
-      { title: "Catalogue — Maison Sillombre" },
+      { title: "Catalogue — Mille et Un Sillages" },
       {
         name: "description",
         content:
-          "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Maison Sillombre.",
+          "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Mille et Un Sillages.",
       },
-      { property: "og:title", content: "Catalogue — Maison Sillombre" },
+      { property: "og:title", content: "Catalogue — Mille et Un Sillages" },
       {
         property: "og:description",
         content:
-          "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Maison Sillombre.",
+          "Parfums Lattafa, Volaré et Loui Martin, coffrets et soins capillaires IMP’HAIR chez Mille et Un Sillages.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

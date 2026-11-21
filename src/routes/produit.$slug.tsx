@@ -31,10 +31,10 @@ export const Route = createFileRoute("/produit/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.product;
-    const t = p ? (p.seo?.title ?? `${p.name} — Maison Sillombre`) : "Produit — Maison Sillombre";
+    const t = p ? (p.seo?.title ?? `${p.name} — Mille et Un Sillages`) : "Produit — Mille et Un Sillages";
     const d = p
       ? (p.seo?.description ?? p.tagline ?? p.description)
-      : "Fiche produit Maison Sillombre.";
+      : "Fiche produit Mille et Un Sillages.";
     return {
       meta: [
         { title: t },

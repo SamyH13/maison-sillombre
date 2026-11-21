@@ -3,7 +3,7 @@ import { whatsappLink } from "@/config/site";
 
 /** Bouton flottant « Une question ? » : n'apparaît qu'une fois le numéro réel configuré. */
 export function WhatsAppFab() {
-  const href = whatsappLink("Bonjour Maison Sillombre, j'aimerais un conseil.");
+  const href = whatsappLink("Bonjour Mille et Un Sillages, j'aimerais un conseil.");
   if (!href) return null;
   return (
     <a
